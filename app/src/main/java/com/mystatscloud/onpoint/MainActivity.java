@@ -11,7 +11,8 @@ public class MainActivity extends ActionBarActivity
 {
 
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState)
+	{
 
 		super.onCreate(savedInstanceState);
 
@@ -30,6 +31,7 @@ public class MainActivity extends ActionBarActivity
 			}
 
 		}, secondsDelayed * 1000);
+
 	}
 
 	@Override

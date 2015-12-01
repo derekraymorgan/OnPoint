@@ -21,6 +21,34 @@
 			android:name=".MainMenuActivity"
 			android:label="@string/title_activity_main_menu">
 		</activity>
+		<activity
+			android:name=".AboutActivity"
+			android:label="@string/title_activity_about">
+		</activity>
+		<activity
+			android:name=".FaqActivity"
+			android:label="@string/title_activity_faq">
+		</activity>
+		<activity
+			android:name=".ResourcesActivity"
+			android:label="@string/title_activity_resources">
+		</activity>
+		<activity
+			android:name=".TestimonialsActivity"
+			android:label="@string/title_activity_testimonials">
+		</activity>
+		<activity
+			android:name=".TestFacilityLocatorActivity"
+			android:label="@string/title_activity_test_facility_locator">
+		</activity>
+		<activity
+			android:name=".PracticeExamActivity"
+			android:label="@string/title_activity_practice_exam">
+		</activity>
+		<activity
+			android:name=".ScheduleTestActivity"
+			android:label="@string/title_activity_schedule_test">
+		</activity>
 	</application>
 
 </manifest>

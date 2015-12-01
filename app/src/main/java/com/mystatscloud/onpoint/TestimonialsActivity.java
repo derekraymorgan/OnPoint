@@ -5,10 +5,10 @@ import android.support.v7.app.ActionBarActivity;
 
 public class TestimonialsActivity extends ActionBarActivity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_testimonials);
-    }
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_testimonials);
+	}
 
 }
