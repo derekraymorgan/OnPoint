@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:paddingBottom="@dimen/activity_vertical_margin"
+	android:paddingLeft="@dimen/activity_horizontal_margin"
+	android:paddingRight="@dimen/activity_horizontal_margin"
+	android:paddingTop="@dimen/activity_vertical_margin"
+	tools:context="com.mystatscloud.onpoint.MainActivity"
+	android:textAlignment="center"
+	android:background="#1a1a1a">
+
+	<ImageView
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:id="@+id/MainImage"
+		android:src="@drawable/bg_gears"
+		android:scaleType="centerCrop"/>
+
+	<TextView
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:textAppearance="?android:attr/textAppearanceLarge"
+		android:text="OnPoint"
+		android:id="@+id/MainText"
+		android:textAlignment="center"
+		android:visibility="visible"
+		android:textColor="#ffffff"
+		android:gravity="center_vertical"
+		android:textIsSelectable="false"
+		android:textSize="23sp"/>
+
+</RelativeLayout>
