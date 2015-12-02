@@ -1,18 +1,14 @@
 package com.mystatscloud.onpoint;
 
-import android.app.Activity;
-import android.app.Notification;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
-import android.widget.Toast;
 import android.widget.ViewFlipper;
 
-public class AboutActivity extends Activity {
+public class AboutActivity extends ActionBarActivity {
 
 	float x1, x2;
 
