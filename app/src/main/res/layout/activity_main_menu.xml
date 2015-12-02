@@ -33,7 +33,7 @@
 		<Button
 			android:layout_width="fill_parent"
 			android:layout_height="wrap_content"
-			android:text="Frequently asked questions"
+			android:text="FAQs"
 			android:id="@+id/faqButton"
 			android:layout_gravity="center_horizontal"
 			android:clickable="true"
@@ -83,7 +83,7 @@
 		<Button
 			android:layout_width="fill_parent"
 			android:layout_height="wrap_content"
-			android:text="Shedule a test"
+			android:text="Schedule a test"
 			android:id="@+id/testSceduleButton"
 			android:layout_gravity="center_horizontal"
 			android:clickable="true"
