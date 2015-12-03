@@ -8,6 +8,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Connects to the onPoint database
+ */
 public class DatabaseAccess
 {
 
