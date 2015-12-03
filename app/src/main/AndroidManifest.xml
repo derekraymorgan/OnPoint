@@ -49,6 +49,14 @@
 			android:name=".ScheduleTestActivity"
 			android:label="@string/title_activity_schedule_test">
 		</activity>
+		<activity
+			android:name=".PracticeExamMenuActivity"
+			android:label="@string/title_activity_practice_exam_menu"
+			android:parentActivityName=".MainMenuActivity">
+			<meta-data
+				android:name="android.support.PARENT_ACTIVITY"
+				android:value="com.mystatscloud.onpoint.MainMenuActivity"/>
+		</activity>
 	</application>
 
 </manifest>

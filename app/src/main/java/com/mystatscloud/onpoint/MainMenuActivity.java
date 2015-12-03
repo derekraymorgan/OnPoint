@@ -48,7 +48,7 @@ public class MainMenuActivity extends ActionBarActivity {
 	/** Called when the user clicks the practice exam button */
 	public void showPracticeExamView(View view)
 	{
-		Intent myIntent = new Intent(MainMenuActivity.this, PracticeExamActivity.class);
+		Intent myIntent = new Intent(MainMenuActivity.this, PracticeExamMenuActivity.class);
 
 		MainMenuActivity.this.startActivity(myIntent);
 	}

@@ -1,13 +1,8 @@
 package com.mystatscloud.onpoint;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
-
-import java.util.List;
 
 public class PracticeExamActivity extends ActionBarActivity
 {
@@ -21,6 +16,7 @@ public class PracticeExamActivity extends ActionBarActivity
 
 		setContentView(R.layout.activity_practice_exam);
 
+		/*
 		this.listView = (ListView) findViewById(R.id.examListView);
 
 		DatabaseAccess databaseAccess = DatabaseAccess.getInstance(this);
@@ -41,6 +37,7 @@ public class PracticeExamActivity extends ActionBarActivity
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, testQuestions);
 
 		this.listView.setAdapter(adapter);
+		*/
 
 	}
 
