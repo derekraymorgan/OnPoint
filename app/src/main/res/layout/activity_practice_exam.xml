@@ -15,8 +15,16 @@
 		android:layout_height="wrap_content"
 		android:textAppearance="?android:attr/textAppearanceLarge"
 		android:text="Practice Exam"
-		android:id="@+id/textView5"
+		android:id="@+id/PracticeExamTitle"
 		android:layout_alignParentTop="true"
 		android:layout_centerHorizontal="true"
 		android:layout_marginTop="61dp"/>
+
+	<ListView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:id="@+id/examListView"
+		android:layout_below="@+id/PracticeExamTitle"
+		android:layout_centerHorizontal="true"
+		android:layout_marginTop="60dp"/>
 </RelativeLayout>
