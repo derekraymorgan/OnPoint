@@ -74,14 +74,14 @@ public class DatabaseAccess
 	{
 		List<String> list = new ArrayList<>();
 
-		Cursor cursor = database.rawQuery("SELECT * FROM testQuestions", null);
+		Cursor cursor = database.rawQuery("SELECT question FROM testQuestions", null);
 
 		cursor.moveToFirst();
 
 		while (!cursor.isAfterLast())
 		{
 
-			list.add(cursor.getString(3));
+			list.add(cursor.getString(0));
 
 			cursor.moveToNext();
 
@@ -91,4 +91,50 @@ public class DatabaseAccess
 
 		return list;
 	}
+
+	public List<String> getTestCategories()
+	{
+		List<String> list = new ArrayList<>();
+
+		Cursor cursor = database.rawQuery("SELECT type FROM testQuestions", null);
+
+		cursor.moveToFirst();
+
+		while (!cursor.isAfterLast())
+		{
+
+			list.add(cursor.getString(0));
+
+			cursor.moveToNext();
+
+		}
+
+		cursor.close();
+
+		return list;
+	}
+
+	public List<String> getTestSkillLevels()
+	{
+		List<String> list = new ArrayList<>();
+
+		Cursor cursor = database.rawQuery("SELECT type FROM testQuestions", null);
+
+		cursor.moveToFirst();
+
+		while (!cursor.isAfterLast())
+		{
+
+			list.add(cursor.getString(0));
+
+			cursor.moveToNext();
+
+		}
+
+		cursor.close();
+
+		return list;
+	}
+
+
 }

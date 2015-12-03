@@ -11,4 +11,6 @@
 	<string name="title_activity_schedule_test">ScheduleTestActivity</string>
 	<color name="Gray">#FF7C7C7C</color>
 	<string name="title_activity_practice_exam_menu">Practice Exam Menu</string>
+	<string name="title_activity_skilled_test_menu">Skilled Based Test Menu</string>
+	<string name="title_activity_category_test_menu">Category Test Menu</string>
 </resources>

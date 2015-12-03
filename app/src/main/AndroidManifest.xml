@@ -57,6 +57,14 @@
 				android:name="android.support.PARENT_ACTIVITY"
 				android:value="com.mystatscloud.onpoint.MainMenuActivity"/>
 		</activity>
+		<activity
+			android:name=".SkilledTestMenuActivity"
+			android:label="@string/title_activity_skilled_test_menu">
+		</activity>
+		<activity
+			android:name=".CategoryTestMenuActivity"
+			android:label="@string/title_activity_category_test_menu">
+		</activity>
 	</application>
 
 </manifest>
