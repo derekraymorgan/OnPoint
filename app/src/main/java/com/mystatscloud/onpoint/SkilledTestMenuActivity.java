@@ -10,28 +10,28 @@ import java.util.List;
 public class SkilledTestMenuActivity extends ActionBarActivity
 {
 
-	private ListView listView;
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
+
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.activity_skilled_test_menu);
 
-		this.listView = (ListView) findViewById(R.id.testSkillListView);
+		ListView listView = (ListView) findViewById(R.id.testSkillListView);
 
 		DatabaseAccess databaseAccess = DatabaseAccess.getInstance(this);
 
 		databaseAccess.open();
 
-		List<String> testQuestions = databaseAccess.getTestQuestions();
+		List<String> skillLevel = databaseAccess.getTestSkillLevels();
 
 		databaseAccess.close();
 
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, testQuestions);
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, skillLevel);
 
-		this.listView.setAdapter(adapter);
+		listView.setAdapter(adapter);
+
 	}
 
 }
