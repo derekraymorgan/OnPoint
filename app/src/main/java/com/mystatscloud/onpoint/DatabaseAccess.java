@@ -96,7 +96,7 @@ public class DatabaseAccess
 	{
 		List<String> list = new ArrayList<>();
 
-		Cursor cursor = database.rawQuery("SELECT type FROM testQuestions", null);
+		Cursor cursor = database.rawQuery("SELECT unique type FROM testQuestions", null);
 
 		cursor.moveToFirst();
 
@@ -118,7 +118,7 @@ public class DatabaseAccess
 	{
 		List<String> list = new ArrayList<>();
 
-		Cursor cursor = database.rawQuery("SELECT type FROM testQuestions", null);
+		Cursor cursor = database.rawQuery("SELECT unique skill FROM testQuestions", null);
 
 		cursor.moveToFirst();
 
