@@ -14,9 +14,42 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:textAppearance="?android:attr/textAppearanceLarge"
-		android:text="Test Facility Locator"
+		android:text="Locate Test Facility"
 		android:id="@+id/textView4"
 		android:layout_alignParentTop="true"
 		android:layout_centerHorizontal="true"
-		android:layout_marginTop="66dp"/>
+		android:focusable="true"
+		android:focusableInTouchMode="true"/>
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="Enter ZipCode:"
+		android:id="@+id/textView17"
+		android:layout_marginTop="59dp"
+		android:layout_below="@+id/textView4"
+		android:layout_alignParentLeft="true"
+		android:layout_alignParentStart="true"
+		android:paddingBottom="10dp" />
+
+	<EditText
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:inputType="number"
+		android:ems="10"
+		android:id="@+id/test_facility_locator_zip_field"
+		android:layout_alignBottom="@+id/textView17"
+		android:layout_toRightOf="@+id/textView17"
+		android:layout_toEndOf="@+id/textView17"
+		android:layout_marginLeft="10dp"
+		android:maxLength="5"/>
+
+	<ListView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:id="@+id/test_facility_locator_list_view"
+		android:layout_below="@+id/textView4"
+		android:layout_alignParentLeft="true"
+		android:layout_alignParentStart="true"
+		android:layout_marginTop="145dp"/>
 </RelativeLayout>

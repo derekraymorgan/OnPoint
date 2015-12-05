@@ -5,6 +5,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.mystatscloud.onpoint.TestFacilityLocator.TestFacility;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -134,6 +136,34 @@ public class DatabaseAccess
 		cursor.close();
 
 		return list;
+	}
+
+	/**
+	 * Query testFacilityLocations table for entry with given zip code
+	 * @param zipCode Zip code of desired entry
+	 * @return list of test facilities with the given zip code
+	 */
+	public List<TestFacility> findFacilityByZipCode(int zipCode)
+	{
+		List<TestFacility> facilities = new ArrayList<>();
+
+		Cursor cursor = database.rawQuery("SELECT * FROM testFacilityLocations WHERE zipCode = "
+											+ Integer.toString(zipCode) + ";", null);
+
+		cursor.moveToFirst();
+
+		while (!cursor.isAfterLast()) {
+			TestFacility facility = new TestFacility(cursor.getString(0), cursor.getString(1)
+									, cursor.getString(2), cursor.getInt(3), cursor.getString(4)
+									, cursor.getString(5));
+			facilities.add(facility);
+
+			cursor.moveToNext();
+		}
+
+		cursor.close();
+
+		return facilities;
 	}
 
 }
