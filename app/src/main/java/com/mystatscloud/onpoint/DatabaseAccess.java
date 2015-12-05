@@ -10,6 +10,7 @@ import com.mystatscloud.onpoint.TestFacilityLocator.TestFacility;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
  * Creates an instance of the onPoint database and provides methods for accessing the data.
  *
@@ -69,22 +70,41 @@ public class DatabaseAccess
 	}
 
 	/**
-	 * Read all test questions from the database.
+	 * Read all test questions from the database corresponding to selected skill level.
 	 *
 	 * @return a List of test questions
 	 */
-	public List<String> getTestQuestions()
+	public List<String> getTestQuestions(List<String> skills)
 	{
-		List<String> list = new ArrayList<>();
+		List<String> questions = new ArrayList<>();
 
-		Cursor cursor = database.rawQuery("SELECT question FROM testQuestions", null);
+		String skillsSqlString = "";
+
+		for (int i = 0; i < skills.size(); i++)
+		{
+			if(i != skills.size() - 1)
+			{
+				skillsSqlString += '"' + skills.get(i) + '"' + ", ";
+			}
+
+			else
+			{
+				skillsSqlString += '"' + skills.get(i) + '"';
+			}
+
+		}
+
+
+		//skillsSqlString = TextUtils.join(",",skills);
+
+		Cursor cursor = database.rawQuery("SELECT question FROM testQuestions where level in (" + skillsSqlString + ")", null);
 
 		cursor.moveToFirst();
 
 		while (!cursor.isAfterLast())
 		{
 
-			list.add(cursor.getString(0));
+			questions.add(cursor.getString(0));
 
 			cursor.moveToNext();
 
@@ -92,7 +112,7 @@ public class DatabaseAccess
 
 		cursor.close();
 
-		return list;
+		return questions;
 	}
 
 	/**
