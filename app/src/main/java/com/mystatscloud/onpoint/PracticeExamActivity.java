@@ -2,12 +2,10 @@ package com.mystatscloud.onpoint;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.widget.ListView;
 
 public class PracticeExamActivity extends ActionBarActivity
 {
 
-	private ListView listView;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)

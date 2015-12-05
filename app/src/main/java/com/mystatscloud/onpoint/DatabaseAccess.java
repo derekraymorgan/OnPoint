@@ -11,7 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Connects to the onPoint database
+ * Creates an instance of the onPoint database and provides methods for accessing the data.
+ *
  */
 public class DatabaseAccess
 {
@@ -23,8 +24,9 @@ public class DatabaseAccess
 
 	/**
 	 * Private constructor to avoid object creation from outside classes.
-	 *
-	 * @param context
+	 * @param  context
+	 * @return an instance of the database open helper class
+	 * @see DatabaseOpenHelper
 	 */
 	private DatabaseAccess(Context context)
 	{
@@ -32,13 +34,13 @@ public class DatabaseAccess
 	}
 
 	/**
-	 * Return a singleton instance of DatabaseAccess.
 	 *
-	 * @param context the Context
-	 * @return the instance of DabaseAccess
+	 * @param context
+	 * @return an instance of the onPoint database
 	 */
 	public static DatabaseAccess getInstance(Context context)
 	{
+		// only create a new database when the database does not exist
 		if (instance == null)
 		{
 			instance = new DatabaseAccess(context);
@@ -71,7 +73,6 @@ public class DatabaseAccess
 	 *
 	 * @return a List of test questions
 	 */
-
 	public List<String> getTestQuestions()
 	{
 		List<String> list = new ArrayList<>();
@@ -94,6 +95,11 @@ public class DatabaseAccess
 		return list;
 	}
 
+	/**
+	 * Read all unique test question categories from the database.
+	 *
+	 * @return a List of test question categories
+	 */
 	public List<String> getTestCategories()
 	{
 		List<String> list = new ArrayList<>();
@@ -116,6 +122,11 @@ public class DatabaseAccess
 		return list;
 	}
 
+	/**
+	 * Read all unique test question skill levels from the database.
+	 *
+	 * @return a List of test question skill levels
+	 */
 	public List<String> getTestSkillLevels()
 	{
 		List<String> list = new ArrayList<>();
