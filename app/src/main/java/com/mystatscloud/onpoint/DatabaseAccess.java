@@ -138,6 +138,11 @@ public class DatabaseAccess
 		return list;
 	}
 
+	/**
+	 * Query testFacilityLocations table for entry with given zip code
+	 * @param zipCode Zip code of desired entry
+	 * @return list of test facilities with the given zip code
+	 */
 	public List<TestFacility> findFacilityByZipCode(int zipCode)
 	{
 		List<TestFacility> facilities = new ArrayList<>();
