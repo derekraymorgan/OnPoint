@@ -6,14 +6,14 @@ import android.widget.ListView;
 
 public class TestimonialsActivity extends ActionBarActivity {
 
-	ListView testimonialListView;
+	ListView testimonialView;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_testimonials);
 
-		testimonialListView = (ListView) findViewById(R.id.testimonial_mainList);
+		testimonialView = (ListView) findViewById(R.id.testimonial_layout);
         TestimonialsAdapter adapter = new TestimonialsAdapter(getApplicationContext(),R.layout.fragment_testimonials_row);
 
         int i;
@@ -30,6 +30,8 @@ public class TestimonialsActivity extends ActionBarActivity {
             adapter.add(obj);
 
         }
+
+        testimonialView.setAdapter(adapter);
 
 
 
