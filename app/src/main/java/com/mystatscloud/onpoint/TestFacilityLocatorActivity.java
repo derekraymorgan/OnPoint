@@ -59,8 +59,12 @@ public class TestFacilityLocatorActivity extends ActionBarActivity {
 		zipField.setOnKeyListener(new View.OnKeyListener() {
 			@Override
 			public boolean onKey(View v, int keyCode, KeyEvent event) {
-				if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER || keyCode == KeyEvent.KEYCODE_BACK)) {
+				if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
 					im.hideSoftInputFromWindow(zipField.getWindowToken(), 0);
+					return true;
+				} else if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_BACK)) {
+					im.hideSoftInputFromWindow(zipField.getWindowToken(), 0);
+					zipField.clearFocus();
 					return true;
 				}
 				return false;

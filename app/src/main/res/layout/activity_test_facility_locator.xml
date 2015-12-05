@@ -17,7 +17,9 @@
 		android:text="Locate Test Facility"
 		android:id="@+id/textView4"
 		android:layout_alignParentTop="true"
-		android:layout_centerHorizontal="true" />
+		android:layout_centerHorizontal="true"
+		android:focusable="true"
+		android:focusableInTouchMode="true"/>
 
 	<TextView
 		android:layout_width="wrap_content"
