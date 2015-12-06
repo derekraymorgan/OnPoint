@@ -58,7 +58,7 @@ public class MainMenuActivity extends ActionBarActivity
 	/** Called when the user clicks the resources menu item button */
 	public void showScheduleTestView(View view)
 	{
-		Intent myIntent = new Intent(MainMenuActivity.this, ScheduleTestActivity.class);
+		Intent myIntent = new Intent(MainMenuActivity.this, ScheduleTestMenuActivity.class);
 
 		MainMenuActivity.this.startActivity(myIntent);
 	}

@@ -14,7 +14,7 @@
         android:paddingTop="20dp"
         android:paddingBottom="15dp"
         android:id="@+id/textView"
-        android:textColor="#2d4272" />
+        android:textColor="@color/DBlue" />
     <TextView
         android:text="A nationally recognized work skills credential"
         android:textAppearance="?android:attr/textAppearanceMedium"

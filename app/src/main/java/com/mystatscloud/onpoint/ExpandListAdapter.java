@@ -12,6 +12,10 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
+/**
+ * ExpandListAdapter that extends from BaseExpandableListAdapter to correspond to FaqActivity's ExpandableListView
+ */
+
 public class ExpandListAdapter extends BaseExpandableListAdapter {
 
     private Context context;

@@ -15,7 +15,7 @@
         android:paddingTop="20dp"
         android:paddingBottom="15dp"
         android:id="@+id/textView"
-        android:textColor="#2d4272"
+        android:textColor="@color/DBlue"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />

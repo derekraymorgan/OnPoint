@@ -229,7 +229,7 @@ public class DatabaseAccess
 	}
 
 	/**
-	 * Read and populate a group of questions and answers for FAQs
+	 * Read and populate a group of questions and answers for FAQs from database
 	 *
 	 * @return Array list of FAQ questions and answers
 	 */

@@ -2,6 +2,9 @@
 <manifest package="com.mystatscloud.onpoint"
           xmlns:android="http://schemas.android.com/apk/res/android">
 
+	<uses-permission android:name="android.permission.CALL_PHONE" />
+	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
 	<application
 		android:allowBackup="true"
 		android:icon="@mipmap/ic_launcher"
@@ -46,7 +49,7 @@
 			android:label="@string/title_activity_practice_exam">
 		</activity>
 		<activity
-			android:name=".ScheduleTestActivity"
+			android:name=".ScheduleTestPhoneActivity"
 			android:label="@string/title_activity_schedule_test">
 		</activity>
 		<activity
@@ -64,6 +67,18 @@
 		<activity
 			android:name=".CategoryTestMenuActivity"
 			android:label="@string/title_activity_category_test_menu">
+		</activity>
+		<activity
+			android:name=".ScheduleTestMenuActivity"
+			android:label="@string/title_activity_schedule_test"
+			android:parentActivityName=".MainMenuActivity">
+			<meta-data
+				android:name="android.support.PARENT_ACTIVITY"
+				android:value="com.mystatscloud.onpoint.MainMenuActivity"/>
+		</activity>
+		<activity
+			android:name=".ScheduleTestFormActivity"
+			android:label="@string/title_activity_schedule_test">
 		</activity>
 	</application>
 

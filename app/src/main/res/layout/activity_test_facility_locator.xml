@@ -22,7 +22,7 @@
 		android:layout_centerHorizontal="true"
 		android:focusable="true"
 		android:focusableInTouchMode="true"
-		android:textColor="#2d4272" />
+		android:textColor="@color/DBlue" />
 
 	<TextView
 		android:layout_width="wrap_content"
