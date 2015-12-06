@@ -197,6 +197,11 @@ public class DatabaseAccess
 		return facilities;
 	}
 
+	/**
+	 * Query testFacilityLocations table for entry with given city or state
+	 * @param string Name of city or state to query database
+	 * @return List of test facilities that match the city or state
+	 */
 	public List<TestFacility> findFacilityByCityOrState(String string) {
 		List<TestFacility> facilities = new ArrayList<>();
 
