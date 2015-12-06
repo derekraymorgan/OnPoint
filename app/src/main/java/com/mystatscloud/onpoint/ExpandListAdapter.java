@@ -1,6 +1,7 @@
 package com.mystatscloud.onpoint;
 
-import com.mystatscloud.onpoint.com.expandListView.Classes.*;
+import com.mystatscloud.onpoint.expandListView.Classes.ExpandListChild;
+import com.mystatscloud.onpoint.expandListView.Classes.ExpandListParent;
 
 import java.util.ArrayList;
 
@@ -45,7 +46,7 @@ public class ExpandListAdapter extends BaseExpandableListAdapter {
             LayoutInflater infalInflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
             view = infalInflater.inflate(R.layout.faq_list_child, null);
         }
-        TextView tv = (TextView) view.findViewById(R.id.listItem);
+        TextView tv = (TextView) view.findViewById(R.id.listItem_faq);
         tv.setText(child.getName());
         tv.setTag(child.getTag());
         return view;
@@ -77,7 +78,7 @@ public class ExpandListAdapter extends BaseExpandableListAdapter {
             LayoutInflater inf = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
             view = inf.inflate(R.layout.faq_list_parent, null);
         }
-        TextView tv = (TextView) view.findViewById(R.id.listHeader);
+        TextView tv = (TextView) view.findViewById(R.id.listHeader_faq);
         tv.setText(group.getName());
         return view;
     }

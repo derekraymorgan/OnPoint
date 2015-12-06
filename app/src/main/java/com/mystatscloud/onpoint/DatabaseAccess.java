@@ -6,7 +6,10 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.mystatscloud.onpoint.TestFacilityLocator.TestFacility;
+import com.mystatscloud.onpoint.expandListView.Classes.ExpandListChild;
+import com.mystatscloud.onpoint.expandListView.Classes.ExpandListParent;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -223,5 +226,50 @@ public class DatabaseAccess
 		cursor.close();
 
 		return facilities;
+	}
+
+	/**
+	 * Read and populate a group of questions and answers for FAQs
+	 *
+	 * @return Array list of FAQ questions and answers
+	 */
+
+	public ArrayList<ExpandListParent> getFAQs()
+	{
+		ArrayList<ExpandListParent> groupList = new ArrayList<ExpandListParent>();
+		ArrayList<ExpandListChild> answerList;
+		ExpandListParent question;
+		ExpandListChild answer;
+
+		Cursor cursor = database.rawQuery("SELECT * FROM faqQA", null);
+
+		cursor.moveToFirst();
+
+		while(!cursor.isAfterLast())
+		{
+			// Make a new question, answer, and answer list
+			question = new ExpandListParent();
+			answer = new ExpandListChild();
+			answerList = new ArrayList<ExpandListChild>();
+
+			// Add values to created variables
+			question.setName(cursor.getString(0));
+			answer.setName((cursor.getString(1)));
+			answer.setTag(null);
+
+			// Add answer to answer list and the answer list to the question
+			answerList.add(answer);
+			question.setItems(answerList);
+
+			// Add the question to group list
+			groupList.add(question);
+
+			// Move cursors
+			cursor.moveToNext();
+		}
+
+		cursor.close();
+
+		return groupList;
 	}
 }

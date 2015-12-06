@@ -21,8 +21,9 @@
 	<View style="@style/Divider"/>
 
 	<ExpandableListView
+		android:id="@+id/expandableListView_faq"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
-		android:id="@+id/expandableListView"/>
+		android:groupIndicator="@drawable/settings_selector" />
 
 </LinearLayout>

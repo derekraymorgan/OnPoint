@@ -1,4 +1,4 @@
-package com.mystatscloud.onpoint.com.expandListView.Classes;
+package com.mystatscloud.onpoint.expandListView.Classes;
 
 public class ExpandListChild
 {
