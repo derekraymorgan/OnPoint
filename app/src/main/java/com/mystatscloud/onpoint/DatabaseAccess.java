@@ -74,9 +74,9 @@ public class DatabaseAccess
 	 *
 	 * @return a List of test questions
 	 */
-	public List<String> getTestQuestions(List<String> skills)
+	public List<ExamQuestion> getTestQuestions(List<String> skills)
 	{
-		List<String> questions = new ArrayList<>();
+		List<ExamQuestion> questions = new ArrayList<>();
 
 		String skillsSqlString = "";
 
@@ -97,14 +97,15 @@ public class DatabaseAccess
 
 		//skillsSqlString = TextUtils.join(",",skills);
 
-		Cursor cursor = database.rawQuery("SELECT question FROM testQuestions where level in (" + skillsSqlString + ")", null);
+		Cursor cursor = database.rawQuery("SELECT * FROM testQuestions where level in (" + skillsSqlString + ")", null);
 
 		cursor.moveToFirst();
 
 		while (!cursor.isAfterLast())
 		{
+			ExamQuestion newQuestion = new ExamQuestion(cursor.getInt(0), cursor.getString(1),cursor.getInt(2),cursor.getString(3),cursor.getInt(4));
 
-			questions.add(cursor.getString(0));
+			questions.add(newQuestion);
 
 			cursor.moveToNext();
 

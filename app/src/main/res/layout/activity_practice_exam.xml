@@ -18,13 +18,42 @@
 		android:id="@+id/PracticeExamTitle"
 		android:layout_alignParentTop="true"
 		android:layout_centerHorizontal="true"
-		android:layout_marginTop="61dp"/>
+		android:layout_marginBottom="20sp"/>
+
+	<ImageView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:id="@+id/imageView8"
+		android:layout_below="@+id/PracticeExamTitle"
+		android:layout_centerHorizontal="true"
+		android:contentDescription="Question Asset"
+		android:background="#c6c6c6"
+		android:layout_marginBottom="15sp"/>
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceMedium"
+		android:text="Medium Text"
+		android:id="@+id/textView18"
+		android:layout_below="@+id/imageView8"
+		android:layout_centerHorizontal="true"
+		android:layout_marginBottom="15sp"/>
 
 	<ListView
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:id="@+id/examListView"
-		android:layout_below="@+id/PracticeExamTitle"
+		android:id="@+id/listView"
+		android:layout_below="@+id/textView18"
 		android:layout_centerHorizontal="true"
-		android:layout_marginTop="60dp"/>
+		tools:listitem="@android:layout/simple_list_item_single_choice"/>
+
+	<Button
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="New Button"
+		android:id="@+id/button"
+		android:layout_alignBottom="@+id/listView"
+		android:layout_centerHorizontal="true"/>
+
 </RelativeLayout>
