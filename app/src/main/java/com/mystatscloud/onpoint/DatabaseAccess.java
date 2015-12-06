@@ -117,6 +117,46 @@ public class DatabaseAccess
 	}
 
 	/**
+	 * Read all test answers from the database corresponding to question id.
+	 *
+	 * @return a List of test question answers
+	 */
+	public examAnswers getExamAnswers(int questionID)
+	{
+
+		Cursor cursor = database.rawQuery("SELECT * FROM testAnswers where questionID = " + questionID, null);
+
+		cursor.moveToFirst();
+
+		List<String> answers = new ArrayList<>();
+
+		int correctAnswerIndex = 0;
+		int correctAnswer = 0;
+
+		while (!cursor.isAfterLast())
+		{
+
+			answers.add(cursor.getString(1));
+
+			if(cursor.getInt(2) == 1)
+			{
+				correctAnswer = correctAnswerIndex;
+			}
+
+			cursor.moveToNext();
+
+			correctAnswerIndex += 0;
+
+		}
+
+		examAnswers newAnswers = new examAnswers(questionID, answers, correctAnswer);
+
+		cursor.close();
+
+		return newAnswers;
+	}
+
+	/**
 	 * Read all unique test question categories from the database.
 	 *
 	 * @return a List of test question categories

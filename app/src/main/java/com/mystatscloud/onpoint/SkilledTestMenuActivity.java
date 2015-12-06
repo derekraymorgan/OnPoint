@@ -44,7 +44,6 @@ public class SkilledTestMenuActivity extends ActionBarActivity
 	}
 
 
-
 	/** Start a new test upon click */
 	public void showPracticeExamView(View view)
 	{
