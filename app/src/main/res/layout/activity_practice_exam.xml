@@ -17,8 +17,6 @@
 		android:textAppearance="?android:attr/textAppearanceLarge"
 		android:text="Practice Exam"
 		android:id="@+id/PracticeExamTitle"
-		android:layout_alignParentTop="true"
-		android:layout_centerHorizontal="true"
 		android:layout_marginBottom="20sp"
 		android:layout_gravity="center_horizontal"/>
 
@@ -26,13 +24,13 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:id="@+id/questionImage"
-		android:layout_below="@+id/PracticeExamTitle"
-		android:layout_centerHorizontal="true"
-		android:contentDescription="Question Asset"
+		android:contentDescription="@string/ExamTitle"
 		android:background="#c6c6c6"
 		android:layout_marginBottom="15sp"
-		android:src="@drawable/q6"
-		android:layout_gravity="center_horizontal"/>
+		android:src="@drawable/q4"
+		android:layout_gravity="center_horizontal"
+		android:maxHeight="100sp"
+		android:adjustViewBounds="false"/>
 
 	<TextView
 		android:layout_width="wrap_content"
@@ -40,17 +38,13 @@
 		android:textAppearance="?android:attr/textAppearanceMedium"
 		android:text="Medium Text"
 		android:id="@+id/questionText"
-		android:layout_below="@+id/questionImage"
-		android:layout_centerHorizontal="true"
 		android:layout_marginBottom="15sp"
 		android:layout_gravity="center_horizontal"/>
 
 	<ListView
 		android:layout_width="wrap_content"
-		android:layout_height="181dp"
+		android:layout_height="wrap_content"
 		android:id="@+id/answerListView"
-		android:layout_below="@+id/questionText"
-		android:layout_centerHorizontal="true"
 		tools:listitem="@android:layout/simple_list_item_single_choice"
 		android:choiceMode="singleChoice"/>
 
@@ -59,8 +53,6 @@
 		android:layout_height="wrap_content"
 		android:text="Submit Answer"
 		android:id="@+id/submitAnswerButton"
-		android:layout_below="@+id/answerListView"
-		android:layout_centerHorizontal="true"
 		android:onClick="submitAnswer"
 		android:launchMode = "singleInstance"
 		android:layout_gravity="center_horizontal"/>

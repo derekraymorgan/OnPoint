@@ -42,8 +42,6 @@ public class PracticeExamActivity extends ActionBarActivity
 
 		databaseAccess.close();
 
-		//RelativeLayoutView examQuestionView = (ListView) findViewById(R.id.answerListView);
-
 		showNextQuestion();
 
 		/*
