@@ -1,13 +1,16 @@
 package com.mystatscloud.onpoint;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.widget.ListView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PracticeExamActivity extends ActionBarActivity
 {
 
-	private ListView listView;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -16,16 +19,18 @@ public class PracticeExamActivity extends ActionBarActivity
 
 		setContentView(R.layout.activity_practice_exam);
 
-		/*
-		this.listView = (ListView) findViewById(R.id.examListView);
+		Bundle selectedValues = getIntent().getExtras();
+
+		ArrayList<String> selectedSkills = selectedValues.getStringArrayList("selectedSkills");
 
 		DatabaseAccess databaseAccess = DatabaseAccess.getInstance(this);
 
 		databaseAccess.open();
 
-		List<String> testQuestions = databaseAccess.getTestQuestions();
+		List<String> testQuestions = databaseAccess.getTestQuestions(selectedSkills);
 
 		databaseAccess.close();
+
 
 		Context context = getApplicationContext();
 		CharSequence text = testQuestions.get(0);
@@ -34,6 +39,9 @@ public class PracticeExamActivity extends ActionBarActivity
 		Toast toast = Toast.makeText(context, text, duration);
 		toast.show();
 
+
+
+		/*
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, testQuestions);
 
 		this.listView.setAdapter(adapter);
