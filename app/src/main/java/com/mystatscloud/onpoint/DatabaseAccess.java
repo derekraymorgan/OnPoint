@@ -197,4 +197,26 @@ public class DatabaseAccess
 		return facilities;
 	}
 
+	public List<TestFacility> findFacilityByCityOrState(String string) {
+		List<TestFacility> facilities = new ArrayList<>();
+
+		Cursor cursor = database.rawQuery("SELECT * FROM testFacilityLocations "
+				+ "WHERE UPPER(REPLACE(city, ' ', '')) LIKE UPPER(REPLACE('%"
+				+ string + "%', ' ', '')) OR UPPER(state) LIKE ('" + string + "')", null);
+
+		cursor.moveToFirst();
+
+		while (!cursor.isAfterLast()) {
+			TestFacility facility = new TestFacility(cursor.getString(0), cursor.getString(1)
+					, cursor.getString(2), cursor.getInt(3), cursor.getString(4)
+					, cursor.getString(5));
+			facilities.add(facility);
+
+			cursor.moveToNext();
+		}
+
+		cursor.close();
+
+		return facilities;
+	}
 }

@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.mystatscloud.onpoint.TestFacilityLocator.TestFacility;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class TestFacilityLocatorActivity extends ActionBarActivity {
 
@@ -46,7 +47,13 @@ public class TestFacilityLocatorActivity extends ActionBarActivity {
 				db.open();
 				if (!zipField.getText().toString().isEmpty()) {
 					// query database for facilities with given zip code
-					List<TestFacility> facilities = db.findFacilityByZipCode(Integer.parseInt(zipField.getText().toString()));
+					List<TestFacility> facilities;
+					if (isInteger(zipField.getText().toString())) { // If the string is an integer, search zipcodes
+						facilities = db.findFacilityByZipCode(Integer.parseInt(zipField.getText().toString()));
+					} else { // Otherwise search cities and states
+						facilities = db.findFacilityByCityOrState(zipField.getText().toString());
+					}
+
 					// Create adapter with list of facilities for listView to show
 					TestFacilityAdapter adapter = new TestFacilityAdapter(facilities);
 					listView.setAdapter(adapter);
@@ -74,7 +81,7 @@ public class TestFacilityLocatorActivity extends ActionBarActivity {
 
 	}
 
-	/*
+	/**
 	 * Adapts test facility location information for presenting in a list view in the test facility
 	 * locator activity.
 	 */
@@ -101,5 +108,17 @@ public class TestFacilityLocatorActivity extends ActionBarActivity {
 
 			return convertView;
 		}
+	}
+
+	/**
+	 * Determines whether a string is a valid int
+	 * @param s string to examine
+	 * @return Returns true if the string is a valid integer, false otherwise
+	 */
+	public static boolean isInteger(String s) {
+		Scanner sc = new Scanner(s.trim());
+		if(!sc.hasNextInt()) return false;
+		sc.nextInt();
+		return !sc.hasNext();
 	}
 }
