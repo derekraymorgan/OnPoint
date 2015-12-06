@@ -17,7 +17,7 @@
         android:textSize="@dimen/titleSize"
         android:textColor="@color/DBlue"
         android:typeface="serif"
-        android:text="Method of Contact"
+        android:text="Contact Method"
         android:id="@+id/prompt"
         android:gravity="center"
         android:layout_gravity="center_horizontal" />
@@ -27,8 +27,8 @@
         android:layout_height="wrap_content"
         android:text="Contact Scheduler by Phone"
         android:id="@+id/phoneButton"
-        android:layout_gravity="center"
-        android:onClick="phoneContact" />
+        android:onClick="phoneContact"
+        android:layout_gravity="center" />
 
     <Button
         android:layout_width="wrap_content"

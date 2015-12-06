@@ -3,6 +3,6 @@
 	<dimen name="activity_horizontal_margin">16dp</dimen>
 	<dimen name="activity_vertical_margin">16dp</dimen>
 	<dimen name="titleSize">38sp</dimen>
-	<dimen name="headingSize">20dp</dimen>
-	<dimen name="normalSize">15dp</dimen>
+	<dimen name="headingSize">20sp</dimen>
+	<dimen name="normalSize">15sp</dimen>
 </resources>
