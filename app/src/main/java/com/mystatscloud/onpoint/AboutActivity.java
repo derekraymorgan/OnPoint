@@ -26,6 +26,7 @@ public class AboutActivity extends ActionBarActivity {
 		flipper = (ViewFlipper) findViewById(R.id.viewFlipper);
 
 		flipper.addView(inflater.inflate(R.layout.fragment_about_ncrc, null));
+		flipper.addView(inflater.inflate(R.layout.fragment_about_workkeys, null));
 		flipper.addView(inflater.inflate(R.layout.fragment_about_cert_level, null));
 
 		flipper.setInAnimation(this, android.R.anim.fade_in);
@@ -40,9 +41,9 @@ public class AboutActivity extends ActionBarActivity {
 				x2 = e.getX();
 				if (Math.abs(x1 - x2) > MINIMUM_X) {
 					if (x1 < x2) {
-						flipper.showNext ();
-					} else if (x1 > x2) {
 						flipper.showPrevious ();
+					} else if (x1 > x2) {
+						flipper.showNext ();
 					}
 				}
 				break;

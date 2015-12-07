@@ -3,8 +3,9 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <TextView
-        android:text="About ACT\nNCRC®"
+        android:text="About ACT\nWorkKeys®"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -14,9 +15,13 @@
         android:paddingTop="20dp"
         android:paddingBottom="15dp"
         android:id="@+id/textView"
-        android:textColor="#2d4272" />
+        android:textColor="#2d4272"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
     <TextView
-        android:text="A nationally recognized work skills credential"
+        android:text="Based on ACT WorkKeys foundational skills assessments"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -26,12 +31,12 @@
         android:paddingBottom="10dp"
         android:textSize="@dimen/headingSize"
         android:typeface="serif"
+        android:id="@+id/textView2"
         android:layout_below="@+id/textView"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/textView2" />
+        android:layout_alignParentStart="true" />
     <TextView
-        android:text="The ACT National Career Readiness Certificate (ACT NCRC) is an assessment-based credential powered by ACT WorkKeys issued at four levels, the ACT NCRC® measures and certifies the essential work skills needed for success in jobs across industries and occupations. "
+        android:text="The ACT NCRC is based on ACT WorkKeys research-based work skills assessments. To earn an ACT NCRC, an examinee must successfully complete three ACT WorkKeys assessments: Applied Mathematics, Locating Information, and Reading for Information.  These assessments measure a range of essential work skills."
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -49,7 +54,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/imageView"
         android:layout_gravity="center_horizontal"
-        android:src="@drawable/about_flipper1"
+        android:src="@drawable/about_flipper2"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>
