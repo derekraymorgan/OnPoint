@@ -1,15 +1,16 @@
 package com.mystatscloud.onpoint;
 
-import android.content.Context;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +20,9 @@ public class PracticeExamActivity extends ActionBarActivity
 
 	public List<ExamQuestion> testQuestions;
 	public int lastQuestionIndex = 0;
-	public int correctAnswers = 0;
+	private int selectedAnswerIndex = -1;
+	private examAnswers currentAnswers;
+	public int totalCorrectAnswers = 0;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -72,12 +75,14 @@ public class PracticeExamActivity extends ActionBarActivity
 		ExamQuestion currentQuestion = testQuestions.get(lastQuestionIndex);
 
 
+		/*
 		Context context = getApplicationContext();
 		CharSequence text = Integer.toString(currentQuestion.questionID);
 		int duration = Toast.LENGTH_SHORT;
 
 		Toast toast = Toast.makeText(context, text, duration);
 		toast.show();
+		*/
 
 		// get the question image view
 		ImageView questionImageView = (ImageView) findViewById(R.id.questionImage);
@@ -116,7 +121,7 @@ public class PracticeExamActivity extends ActionBarActivity
 
 		int questionID = currentQuestion.questionID;
 
-		examAnswers examAnswers = databaseAccess.getExamAnswers(questionID);
+		currentAnswers = databaseAccess.getExamAnswers(questionID);
 
 		databaseAccess.close();
 
@@ -124,14 +129,22 @@ public class PracticeExamActivity extends ActionBarActivity
 		// get the answer list view
 		ListView answerListView = (ListView) findViewById(R.id.answerListView);
 
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_single_choice, examAnswers.answerList);
+		answerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+			{
+				selectedAnswerIndex = position;
+			}
+
+		});
+
+
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_single_choice, currentAnswers.answerList);
 
 		answerListView.setAdapter(adapter);
 
 
 	}
-
-
 
 	/**
 	 * submit the selected answer and show next question
@@ -139,16 +152,89 @@ public class PracticeExamActivity extends ActionBarActivity
 	 */
 	public void submitAnswer(View view)
 	{
-		// get the selected answer
 
 		// if answer is correct then
-
+		if(currentAnswers.correctAnswer == selectedAnswerIndex)
+		{
 			// +1 to correct answers
+			totalCorrectAnswers += 1;
+
+			AlertDialog.Builder builder = new AlertDialog.Builder(PracticeExamActivity.this);
+
+			builder.setMessage("Correct Answer!");
+
+			builder.setPositiveButton("Next Question", new DialogInterface.OnClickListener()
+			{
+				public void onClick(DialogInterface dialog, int id)
+				{
+					readyNextQuestion();
+				}
+
+			});
+
+
+			AlertDialog alert = builder.create();
+
+			alert.show();
+
+		}
 
 		// else if answer was wrong then
+		else
+		{
 
-			// show the solution explain
+			DatabaseAccess databaseAccess = DatabaseAccess.getInstance(this);
 
+			databaseAccess.open();
+
+			// get the test questions
+			final String explainedAnswer = databaseAccess.getExplainedAnswer(currentAnswers.questionID);
+
+			databaseAccess.close();
+
+			AlertDialog.Builder builder = new AlertDialog.Builder(PracticeExamActivity.this);
+
+			builder.setMessage("Wrong Answer!");
+
+			builder.setNegativeButton("Show Answer Explanation", new DialogInterface.OnClickListener()
+			{
+				public void onClick(DialogInterface dialog, int id)
+				{
+
+					AlertDialog.Builder alert = new AlertDialog.Builder(PracticeExamActivity.this);
+
+					alert.setTitle("Answer Explained");
+
+					alert.setMessage(explainedAnswer);
+
+					alert.setPositiveButton("OK",null);
+
+					alert.show();
+
+				}
+			});
+
+			builder.setPositiveButton("Next Question", new DialogInterface.OnClickListener()
+			{
+				public void onClick(DialogInterface dialog, int id)
+				{
+					readyNextQuestion();
+				}
+
+			});
+
+			AlertDialog alert = builder.create();
+
+			alert.show();
+
+		}
+
+
+
+	}
+
+	private void readyNextQuestion()
+	{
 		// ask next question if there is one
 		lastQuestionIndex += 1;
 
@@ -162,8 +248,6 @@ public class PracticeExamActivity extends ActionBarActivity
 			// set the view for the exam questions
 			setContentView(R.layout.activity_exam_complete);
 		}
-
-
 	}
 
 }

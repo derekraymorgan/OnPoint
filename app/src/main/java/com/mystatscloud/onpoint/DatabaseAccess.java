@@ -9,7 +9,6 @@ import com.mystatscloud.onpoint.TestFacilityLocator.TestFacility;
 import com.mystatscloud.onpoint.expandListView.Classes.ExpandListChild;
 import com.mystatscloud.onpoint.expandListView.Classes.ExpandListParent;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -120,6 +119,21 @@ public class DatabaseAccess
 	}
 
 	/**
+	 * Read the "explained answer" from the database using question id as PK.
+	 *
+	 * @return a List of test question answers
+	 */
+	public String getExplainedAnswer(int questionID)
+	{
+
+		Cursor cursor = database.rawQuery("SELECT explainedAnswer FROM testAnswersExplained where questionID = " + questionID, null);
+
+		cursor.moveToFirst();
+
+		return cursor.getString(0);
+	}
+
+	/**
 	 * Read all test answers from the database corresponding to question id.
 	 *
 	 * @return a List of test question answers
@@ -148,7 +162,7 @@ public class DatabaseAccess
 
 			cursor.moveToNext();
 
-			correctAnswerIndex += 0;
+			correctAnswerIndex += 1;
 
 		}
 

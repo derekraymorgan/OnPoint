@@ -11,50 +11,64 @@
 	android:paddingTop="@dimen/activity_vertical_margin"
 	tools:context="com.mystatscloud.onpoint.PracticeExamActivity">
 
-	<TextView
+	<ScrollView
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:textAppearance="?android:attr/textAppearanceLarge"
-		android:text="Practice Exam"
-		android:id="@+id/PracticeExamTitle"
-		android:layout_marginBottom="20sp"
-		android:layout_gravity="center_horizontal"/>
+		android:id="@+id/scrollView">
 
-	<ImageView
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:id="@+id/questionImage"
-		android:contentDescription="@string/ExamTitle"
-		android:background="#c6c6c6"
-		android:layout_marginBottom="15sp"
-		android:src="@drawable/q4"
-		android:layout_gravity="center_horizontal"
-		android:maxHeight="100sp"
-		android:adjustViewBounds="false"/>
+		<LinearLayout
+			android:orientation="vertical"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
 
-	<TextView
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:textAppearance="?android:attr/textAppearanceMedium"
-		android:text="Medium Text"
-		android:id="@+id/questionText"
-		android:layout_marginBottom="15sp"
-		android:layout_gravity="center_horizontal"/>
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textAppearance="?android:attr/textAppearanceLarge"
+				android:text="Practice Exam"
+				android:id="@+id/PracticeExamTitle"
+				android:layout_marginBottom="20sp"
+				android:layout_gravity="center_horizontal"/>
 
-	<ListView
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:id="@+id/answerListView"
-		tools:listitem="@android:layout/simple_list_item_single_choice"
-		android:choiceMode="singleChoice"/>
+			<ImageView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:id="@+id/questionImage"
+				android:contentDescription="@string/ExamTitle"
+				android:background="#c6c6c6"
+				android:layout_marginBottom="15sp"
+				android:src="@drawable/q4"
+				android:layout_gravity="center_horizontal"
+				android:maxHeight="100sp"
+				android:adjustViewBounds="false"/>
 
-	<Button
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:text="Submit Answer"
-		android:id="@+id/submitAnswerButton"
-		android:onClick="submitAnswer"
-		android:launchMode = "singleInstance"
-		android:layout_gravity="center_horizontal"/>
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textAppearance="?android:attr/textAppearanceMedium"
+				android:text="Medium Text"
+				android:id="@+id/questionText"
+				android:layout_marginBottom="15sp"
+				android:layout_gravity="center_horizontal"/>
+
+			<ListView
+				android:layout_width="wrap_content"
+				android:layout_height="250sp"
+				android:id="@+id/answerListView"
+				tools:listitem="@android:layout/simple_list_item_single_choice"
+				android:choiceMode="singleChoice"
+				android:stackFromBottom="false"
+				android:drawSelectorOnTop="false"/>
+
+			<Button
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Submit Answer"
+				android:id="@+id/submitAnswerButton"
+				android:onClick="submitAnswer"
+				android:launchMode = "singleInstance"
+				android:layout_gravity="center_horizontal"/>
+		</LinearLayout>
+	</ScrollView>
 
 </LinearLayout>
