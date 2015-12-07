@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
@@ -11,4 +11,55 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.mystatscloud.onpoint.ScheduleTestPhoneActivity">
 
-</LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contact by Phone"
+        android:id="@+id/phoneHeader"
+        android:textColor="@color/DBlue"
+        android:textSize="@dimen/titleSize"
+        android:typeface="serif"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <View style="@style/Divider"
+        android:layout_below="@+id/phoneHeader"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/view" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Press the button to below to begin a call with an OnPoint representative."
+        android:id="@+id/phoneText"
+        android:textSize="@dimen/headingSize"
+        android:layout_gravity="center_horizontal"
+        android:textAlignment="center"
+        android:layout_below="@+id/view"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="31dp" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Call Representative"
+        android:id="@+id/callButton"
+        android:layout_marginBottom="33dp"
+        android:onClick="call"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/phoneIMG"
+        android:src="@drawable/phone"
+        android:layout_below="@+id/phoneText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="43dp" />
+
+</RelativeLayout>

@@ -4,15 +4,14 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.v7.app.ActionBarActivity;
 import android.telephony.PhoneNumberFormattingTextWatcher;
 import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Properties;
 
@@ -59,10 +58,16 @@ public class ScheduleTestFormActivity extends ActionBarActivity {
 
     private Message createMessage(Session session) throws MessagingException, UnsupportedEncodingException {
         String name, phone, email, company, message;
-        String EMAIL_REGEX = "^[_A-Za-z0-9-\\\\+]+(\\\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\\\.[A-Za-z0-9]+)*(\\\\.[A-Za-z]{2,})$";
         String PHONE_REGEX = "^(?:(?:\\+?1\\s*(?:[.-]\\s*)?)?(?:\\(\\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\\s*\\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\\s*(?:[.-]\\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\\s*(?:[.-]\\s*)?([0-9]{4})(?:\\s*(?:#|x\\.?|ext\\.?|extension)\\s*(\\d+))?$";
 
         final EditText nameField = (EditText) findViewById(R.id.EditTextName);
+        final EditText phoneField = (EditText) findViewById(R.id.EditTextPhone);
+        final EditText emailField = (EditText) findViewById(R.id.EditTextEmail);
+        final EditText companyField = (EditText) findViewById(R.id.EditTextCompany);
+        final EditText commentField = (EditText) findViewById(R.id.EditTextMessage);
+
+        phoneField.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
+
         name = nameField.getText().toString();
         if(TextUtils.isEmpty(name))
         {
@@ -70,9 +75,6 @@ public class ScheduleTestFormActivity extends ActionBarActivity {
             throw new MessagingException();
         }
 
-        final EditText phoneField = (EditText) findViewById(R.id.EditTextPhone);
-        phoneField.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
-        final EditText emailField = (EditText) findViewById(R.id.EditTextEmail);
         email = emailField.getText().toString();
         phone = phoneField.getText().toString();
         if(TextUtils.isEmpty(phone) && TextUtils.isEmpty(email))
@@ -82,7 +84,7 @@ public class ScheduleTestFormActivity extends ActionBarActivity {
         }
         else if(TextUtils.isEmpty(phone))
         {
-            if(email.matches(EMAIL_REGEX))
+            if(Patterns.EMAIL_ADDRESS.matcher(email).matches())
             {
                 phone = "N/A";
             }
@@ -105,14 +107,12 @@ public class ScheduleTestFormActivity extends ActionBarActivity {
             }
         }
 
-        final EditText companyField = (EditText) findViewById(R.id.EditTextCompany);
         company = companyField.getText().toString();
         if(TextUtils.isEmpty(company))
         {
             company = "N/A";
         }
 
-        final EditText commentField = (EditText) findViewById(R.id.EditTextMessage);
         message = commentField.getText().toString();
         if(TextUtils.isEmpty(message))
         {
@@ -162,7 +162,7 @@ public class ScheduleTestFormActivity extends ActionBarActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            progressDialog = ProgressDialog.show(ScheduleTestFormActivity.this, "Please wait...", "Sending request...", true, false);
+            progressDialog = ProgressDialog.show(ScheduleTestFormActivity.this, "Please wait...", "Sending request.", true, false);
         }
 
         @Override
