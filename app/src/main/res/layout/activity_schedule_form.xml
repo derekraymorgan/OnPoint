@@ -23,7 +23,9 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:text="Complete form to request a test date:"
-			android:textSize="@dimen/normalSize"/>
+			android:textSize="@dimen/headingSize"/>
+
+		<View style="@style/Divider"/>
 
 		<EditText
 			android:id="@+id/EditTextName"
@@ -58,7 +60,7 @@
 			android:layout_height="wrap_content"
 			android:hint="Comments/Additional Information"
 			android:inputType="textMultiLine"
-			android:lines="10"
+			android:lines="8"
 			android:layout_width="fill_parent"
 			android:gravity="top" />
 

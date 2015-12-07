@@ -35,16 +35,6 @@
 		<Button
 			android:layout_width="fill_parent"
 			android:layout_height="wrap_content"
-			android:text="Resources"
-			android:id="@+id/resourcesButton"
-			android:layout_gravity="center_horizontal"
-			android:clickable="true"
-			android:focusable="false"
-			android:onClick="showResourcesView"/>
-
-		<Button
-			android:layout_width="fill_parent"
-			android:layout_height="wrap_content"
 			android:text="Testimonials"
 			android:id="@+id/testimonialsButton"
 			android:clickable="true"
@@ -88,6 +78,15 @@
 			android:clickable="true"
 			android:focusable="false"
 			android:onClick="showFaqView"/>
+
+		<Button
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:text="Resources"
+			android:id="@+id/resourcesButton"
+			android:clickable="true"
+			android:focusable="false"
+			android:onClick="showResourcesView"/>
 	</LinearLayout>
 
 	<TextView
