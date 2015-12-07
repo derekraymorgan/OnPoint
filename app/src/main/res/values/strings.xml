@@ -13,4 +13,6 @@
 	<string name="title_activity_practice_exam_menu">Practice Exam Menu</string>
 	<string name="title_activity_skilled_test_menu">Skilled Based Test Menu</string>
 	<string name="title_activity_category_test_menu">Category Test Menu</string>
+	<string name="title_activity_exam_complete">Exam Complete</string>
+	<string name="ExamTitle">Question Asset</string>
 </resources>

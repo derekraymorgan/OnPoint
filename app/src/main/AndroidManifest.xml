@@ -65,6 +65,10 @@
 			android:name=".CategoryTestMenuActivity"
 			android:label="@string/title_activity_category_test_menu">
 		</activity>
+		<activity
+			android:name=".ExamCompleteActivity"
+			android:label="@string/title_activity_exam_complete">
+		</activity>
 	</application>
 
 </manifest>
