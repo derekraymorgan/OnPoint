@@ -1,5 +1,7 @@
 package com.mystatscloud.onpoint;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.text.Editable;
@@ -8,6 +10,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -15,7 +18,10 @@ import android.widget.TextView;
 
 import com.mystatscloud.onpoint.TestFacilityLocator.TestFacility;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.List;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class TestFacilityLocatorActivity extends ActionBarActivity {
@@ -33,7 +39,8 @@ public class TestFacilityLocatorActivity extends ActionBarActivity {
 		listView = (ListView) findViewById(R.id.test_facility_locator_list_view);
 		zipField = (EditText) findViewById(R.id.test_facility_locator_zip_field);
 
-		// When the number in the zipField is changed, query database for facility with given zip and update listview
+		// When the number in the zipField is changed, query database for facility with
+		// the given zip or string and update listview
 		zipField.addTextChangedListener(new TextWatcher() {
 			@Override
 			public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
@@ -78,7 +85,26 @@ public class TestFacilityLocatorActivity extends ActionBarActivity {
 			}
 		});
 
+		// Click an Item in the list view to go to that address in google maps
+		listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				TestFacility facility = ((TestFacilityAdapter)listView.getAdapter()).getItem(position);
 
+				String uri = null;
+				try { // Open a maps application with the corresponding location
+					// must encode address as a URL
+					uri = String.format("geo:0,0?q=%s", URLEncoder.encode(facility.getAddress() + ", "
+							+ facility.getCity() + ", "
+							+ facility.getState() + ", "
+							+ facility.getZipCode(), "UTF-8"));
+				} catch (UnsupportedEncodingException e) {
+					e.printStackTrace();
+				}
+				Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+				startActivity(intent);
+			}
+		});
 	}
 
 	/**
@@ -109,6 +135,8 @@ public class TestFacilityLocatorActivity extends ActionBarActivity {
 			return convertView;
 		}
 	}
+
+
 
 	/**
 	 * Determines whether a string is a valid int
