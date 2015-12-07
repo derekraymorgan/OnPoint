@@ -31,7 +31,7 @@
 		</activity>
 		<activity
 			android:name=".ResourcesActivity"
-			android:label="@string/title_activity_resources">
+			android:label="Resources">
 		</activity>
 		<activity
 			android:name=".TestimonialsActivity"

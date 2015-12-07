@@ -25,6 +25,7 @@ public class TestimonialsAdapter extends ArrayAdapter<TestimonialClass>{
     private List<TestimonialClass> testimonials = new ArrayList<>();
 
     public TestimonialsAdapter(Context context, int resource) {
+
         super(context,resource);
     }
 
