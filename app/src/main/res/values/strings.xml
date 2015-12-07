@@ -14,4 +14,6 @@
 	<string name="title_activity_category_test_menu">Category Test Menu</string>
 	<color name="Gray">#FF7C7C7C</color>
 	<color name="DBlue">#2D4272</color>
+	<string name="title_activity_exam_complete">Exam Complete</string>
+	<string name="ExamTitle">Question Asset</string>
 </resources>

@@ -34,7 +34,7 @@
 		</activity>
 		<activity
 			android:name=".ResourcesActivity"
-			android:label="@string/title_activity_resources">
+			android:label="Resources">
 		</activity>
 		<activity
 			android:name=".TestimonialsActivity"
@@ -79,6 +79,11 @@
 		<activity
 			android:name=".ScheduleTestFormActivity"
 			android:label="@string/title_activity_schedule_test">
+		</activity>
+		<activity
+			android:name=".ExamCompleteActivity"
+			android:label="@string/title_activity_exam_complete">
+
 		</activity>
 	</application>
 

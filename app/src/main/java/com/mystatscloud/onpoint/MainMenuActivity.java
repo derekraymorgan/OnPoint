@@ -31,6 +31,14 @@ public class MainMenuActivity extends ActionBarActivity
 		MainMenuActivity.this.startActivity(myIntent);
 	}
 
+	/** Called when the user clicks the schedule test menu item button */
+	public void showResourcesView(View view)
+	{
+		Intent myIntent = new Intent(MainMenuActivity.this, ResourcesActivity.class);
+
+		MainMenuActivity.this.startActivity(myIntent);
+	}
+
 	/** Called when the user clicks the testimonials menu item button */
 	public void showTestimonialsView(View view)
 	{
@@ -55,7 +63,7 @@ public class MainMenuActivity extends ActionBarActivity
 		MainMenuActivity.this.startActivity(myIntent);
 	}
 
-	/** Called when the user clicks the resources menu item button */
+	/** Called when the user clicks the schedule test menu item button */
 	public void showScheduleTestView(View view)
 	{
 		Intent myIntent = new Intent(MainMenuActivity.this, ScheduleTestMenuActivity.class);

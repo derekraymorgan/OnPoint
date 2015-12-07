@@ -77,9 +77,9 @@ public class DatabaseAccess
 	 *
 	 * @return a List of test questions
 	 */
-	public List<String> getTestQuestions(List<String> skills)
+	public List<ExamQuestion> getTestQuestions(List<String> skills)
 	{
-		List<String> questions = new ArrayList<>();
+		List<ExamQuestion> questions = new ArrayList<>();
 
 		String skillsSqlString = "";
 
@@ -100,14 +100,15 @@ public class DatabaseAccess
 
 		//skillsSqlString = TextUtils.join(",",skills);
 
-		Cursor cursor = database.rawQuery("SELECT question FROM testQuestions where level in (" + skillsSqlString + ")", null);
+		Cursor cursor = database.rawQuery("SELECT * FROM testQuestions where level in (" + skillsSqlString + ")", null);
 
 		cursor.moveToFirst();
 
 		while (!cursor.isAfterLast())
 		{
+			ExamQuestion newQuestion = new ExamQuestion(cursor.getInt(0), cursor.getString(1),cursor.getInt(2),cursor.getString(3),cursor.getInt(4));
 
-			questions.add(cursor.getString(0));
+			questions.add(newQuestion);
 
 			cursor.moveToNext();
 
@@ -116,6 +117,46 @@ public class DatabaseAccess
 		cursor.close();
 
 		return questions;
+	}
+
+	/**
+	 * Read all test answers from the database corresponding to question id.
+	 *
+	 * @return a List of test question answers
+	 */
+	public examAnswers getExamAnswers(int questionID)
+	{
+
+		Cursor cursor = database.rawQuery("SELECT * FROM testAnswers where questionID = " + questionID, null);
+
+		cursor.moveToFirst();
+
+		List<String> answers = new ArrayList<>();
+
+		int correctAnswerIndex = 0;
+		int correctAnswer = 0;
+
+		while (!cursor.isAfterLast())
+		{
+
+			answers.add(cursor.getString(1));
+
+			if(cursor.getInt(2) == 1)
+			{
+				correctAnswer = correctAnswerIndex;
+			}
+
+			cursor.moveToNext();
+
+			correctAnswerIndex += 0;
+
+		}
+
+		examAnswers newAnswers = new examAnswers(questionID, answers, correctAnswer);
+
+		cursor.close();
+
+		return newAnswers;
 	}
 
 	/**
