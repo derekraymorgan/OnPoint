@@ -21,7 +21,6 @@ import com.mystatscloud.onpoint.TestFacilityLocator.TestFacility;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.List;
-import java.util.Locale;
 import java.util.Scanner;
 
 public class TestFacilityLocatorActivity extends ActionBarActivity {
@@ -119,7 +118,7 @@ public class TestFacilityLocatorActivity extends ActionBarActivity {
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
 			if (convertView == null) {
-				convertView = getLayoutInflater().inflate(R.layout.list_item_test_facility, null);
+				convertView = getLayoutInflater().inflate(R.layout.list_item_test_facility, parent, false);
 			}
 
 			TestFacility facility = getItem(position);
@@ -130,7 +129,8 @@ public class TestFacilityLocatorActivity extends ActionBarActivity {
 
 			// Set list item city, state, zip to corresponding values from testFacility in list
 			TextView cityStateZip = (TextView) convertView.findViewById(R.id.list_item_test_facility_city_state_zip);
-			cityStateZip.setText(facility.getCity() + ", " + facility.getState() + " " + facility.getZipCode());
+			String searchString = facility.getCity() + ", " + facility.getState() + " " + facility.getZipCode();
+			cityStateZip.setText(searchString);
 
 			return convertView;
 		}
