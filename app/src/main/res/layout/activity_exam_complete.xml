@@ -19,4 +19,14 @@
 		android:layout_alignParentTop="true"
 		android:layout_centerHorizontal="true"
 		android:layout_marginTop="70dp"/>
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceMedium"
+		android:text="100%"
+		android:id="@+id/score"
+		android:layout_below="@+id/textView18"
+		android:layout_centerHorizontal="true"
+		android:layout_marginTop="65dp"/>
 </RelativeLayout>

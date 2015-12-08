@@ -12,6 +12,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -129,7 +131,8 @@ public class PracticeExamActivity extends ActionBarActivity
 		// get the answer list view
 		ListView answerListView = (ListView) findViewById(R.id.answerListView);
 
-		answerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+		answerListView.setOnItemClickListener(new AdapterView.OnItemClickListener()
+		{
 
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id)
 			{
@@ -207,7 +210,14 @@ public class PracticeExamActivity extends ActionBarActivity
 
 					alert.setMessage(explainedAnswer);
 
-					alert.setPositiveButton("OK",null);
+					alert.setPositiveButton("OK", new DialogInterface.OnClickListener()
+					{
+						public void onClick(DialogInterface dialog, int id)
+						{
+							readyNextQuestion();
+						}
+
+					});
 
 					alert.show();
 
@@ -230,7 +240,6 @@ public class PracticeExamActivity extends ActionBarActivity
 		}
 
 
-
 	}
 
 	private void readyNextQuestion()
@@ -247,6 +256,15 @@ public class PracticeExamActivity extends ActionBarActivity
 		{
 			// set the view for the exam questions
 			setContentView(R.layout.activity_exam_complete);
+
+			TextView scoreTextView = (TextView) findViewById(R.id.score);
+
+			DecimalFormat scoreFormat = new DecimalFormat("##.#");
+
+			scoreFormat.setRoundingMode(RoundingMode.CEILING);
+
+			scoreTextView.setText(scoreFormat.format((float)totalCorrectAnswers/testQuestions.size()*100)+"%");
+
 		}
 	}
 
