@@ -11,10 +11,12 @@
 		android:icon="@mipmap/ic_launcher"
 		android:label="@string/app_name"
 		android:supportsRtl="true"
-		android:theme="@style/AppTheme">
+		android:theme="@style/AppTheme"
+		android:screenOrientation="portrait">
 		<activity
 			android:name=".MainActivity"
-			android:label="@string/app_name">
+			android:label="@string/app_name"
+			android:screenOrientation="portrait">>
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN"/>
 
@@ -23,67 +25,81 @@
 		</activity>
 		<activity
 			android:name=".MainMenuActivity"
-			android:label="@string/title_activity_main_menu">
+			android:label="@string/title_activity_main_menu"
+			android:screenOrientation="portrait">
 		</activity>
 		<activity
 			android:name=".AboutActivity"
-			android:label="@string/title_activity_about">
+			android:label="@string/title_activity_about"
+			android:screenOrientation="portrait">
 		</activity>
 		<activity
 			android:name=".FaqActivity"
-			android:label="@string/app_name">
+			android:label="@string/app_name"
+			android:screenOrientation="portrait">
 		</activity>
 		<activity
 			android:name=".ResourcesActivity"
-			android:label="Resources">
+			android:label="Resources"
+			android:screenOrientation="portrait">
 		</activity>
 		<activity
 			android:name=".TestimonialsActivity"
-			android:label="Testimonials">
+			android:label="Testimonials"
+			android:screenOrientation="portrait">
 		</activity>
 		<activity
 			android:name=".TestFacilityLocatorActivity"
-			android:label="@string/title_activity_test_facility_locator">
+			android:label="@string/title_activity_test_facility_locator"
+			android:screenOrientation="portrait">
 		</activity>
 		<activity
 			android:name=".PracticeExamActivity"
-			android:label="@string/title_activity_practice_exam">
+			android:label="@string/title_activity_practice_exam"
+			android:screenOrientation="portrait">
 		</activity>
 		<activity
 			android:name=".ScheduleTestPhoneActivity"
-			android:label="@string/title_activity_schedule_test">
+			android:label="@string/title_activity_schedule_test"
+			android:screenOrientation="portrait">
 		</activity>
 		<activity
 			android:name=".PracticeExamMenuActivity"
 			android:label="@string/title_activity_practice_exam_menu"
-			android:parentActivityName=".MainMenuActivity">
+			android:parentActivityName=".MainMenuActivity"
+			android:screenOrientation="portrait">
 			<meta-data
 				android:name="android.support.PARENT_ACTIVITY"
 				android:value="com.mystatscloud.onpoint.MainMenuActivity"/>
 		</activity>
 		<activity
 			android:name=".SkilledTestMenuActivity"
-			android:label="@string/title_activity_skilled_test_menu">
+			android:label="@string/title_activity_skilled_test_menu"
+			android:screenOrientation="portrait">
 		</activity>
 		<activity
 			android:name=".CategoryTestMenuActivity"
-			android:label="@string/title_activity_category_test_menu">
+			android:label="@string/title_activity_category_test_menu"
+			android:screenOrientation="portrait">
 		</activity>
 		<activity
 			android:name=".ScheduleTestMenuActivity"
 			android:label="@string/title_activity_schedule_test"
-			android:parentActivityName=".MainMenuActivity">
+			android:parentActivityName=".MainMenuActivity"
+			android:screenOrientation="portrait">
 			<meta-data
 				android:name="android.support.PARENT_ACTIVITY"
 				android:value="com.mystatscloud.onpoint.MainMenuActivity"/>
 		</activity>
 		<activity
 			android:name=".ScheduleTestFormActivity"
-			android:label="@string/title_activity_schedule_test">
+			android:label="@string/title_activity_schedule_test"
+			android:screenOrientation="portrait">
 		</activity>
 		<activity
 			android:name=".ExamCompleteActivity"
-			android:label="@string/title_activity_exam_complete">
+			android:label="@string/title_activity_exam_complete"
+			android:screenOrientation="portrait">
 
 		</activity>
 	</application>
