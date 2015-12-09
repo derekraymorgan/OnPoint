@@ -17,7 +17,7 @@
 		android:textSize="@dimen/titleSize"
 		android:textColor="@color/DBlue"
 		android:typeface="serif"
-		android:text="@string/title_activity_faq"
+		android:text="Frequently Asked Questions"
 		android:id="@+id/textView"
 		android:gravity="center" />
 

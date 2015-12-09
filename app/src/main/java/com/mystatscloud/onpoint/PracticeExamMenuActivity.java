@@ -16,8 +16,6 @@ public class PracticeExamMenuActivity extends ActionBarActivity
 
 		setContentView(R.layout.activity_practice_exam_menu);
 
-		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
 	}
 
 	/** Called when the user clicks the skill based test menu item button */

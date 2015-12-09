@@ -11,7 +11,7 @@ public class ExpandListChild
     }
 
     public void setName(String Name) {
-        this.Name = Name;
+        this.Name = unescape(Name);
     }
 
     public String getTag()
@@ -22,6 +22,11 @@ public class ExpandListChild
     public void setTag(String Tag)
     {
         this.Tag = Tag;
+    }
+
+    private String unescape(String s)
+    {
+        return s.replaceAll("\\\\n", "\\\n");
     }
 }
 

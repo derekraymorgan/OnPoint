@@ -14,8 +14,6 @@ public class ScheduleTestMenuActivity extends ActionBarActivity
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_schedule_test_menu);
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     // Schedule a test by contacting OnPoint representative

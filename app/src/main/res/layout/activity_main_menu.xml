@@ -28,7 +28,6 @@
 			android:layout_height="wrap_content"
 			android:text="About"
 			android:id="@+id/aboutButton"
-			android:layout_gravity="center_horizontal"
 			android:clickable="true"
 			android:onClick="showAboutView"/>
 
@@ -89,16 +88,16 @@
 			android:onClick="showResourcesView"/>
 	</LinearLayout>
 
-	<TextView
+	<!--<TextView
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:textAppearance="?android:attr/textAppearanceLarge"
-		android:text="OnPoint"
+		android:text="On Point"
 		android:id="@+id/MenuTitle"
 		android:layout_alignParentTop="true"
 		android:layout_centerHorizontal="true"
 		android:textColor="#ffffff"
-		android:textSize="30sp"/>
+		android:textSize="30sp"/> -->
 
 	<ImageView
 		android:layout_width="wrap_content"

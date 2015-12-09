@@ -40,5 +40,6 @@ public class TestimonialsActivity extends ActionBarActivity {
 
         // link the data adapter to the list view for rendering
         testimonialView.setAdapter(adapter);
+
     }
 }

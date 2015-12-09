@@ -104,6 +104,7 @@ public class TestFacilityLocatorActivity extends ActionBarActivity {
 				startActivity(intent);
 			}
 		});
+
 	}
 
 	/**

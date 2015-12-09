@@ -14,7 +14,7 @@ public class ExpandListParent
 
     public void setName(String name)
     {
-        this.Name = name;
+        this.Name = unescape(name);
     }
 
     public ArrayList<ExpandListChild> getItems()
@@ -25,6 +25,11 @@ public class ExpandListParent
     public void setItems(ArrayList<ExpandListChild> Items)
     {
         this.Items = Items;
+    }
+
+    private String unescape(String s)
+    {
+        return s.replaceAll("\\\\n", "\\\n");
     }
 
 }
