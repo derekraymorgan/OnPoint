@@ -20,6 +20,7 @@ public class ExpandListAdapter extends BaseExpandableListAdapter {
 
     private Context context;
     private ArrayList<ExpandListParent> groups;
+
     public ExpandListAdapter(Context context, ArrayList<ExpandListParent> groups) {
         this.context = context;
         this.groups = groups;

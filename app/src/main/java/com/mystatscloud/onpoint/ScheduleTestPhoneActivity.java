@@ -14,20 +14,20 @@ import android.widget.Toast;
 
 public class ScheduleTestPhoneActivity extends ActionBarActivity {
 	final Context context = this;
-	private Button button;
+	private Button callButton;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_schedule_phone);
-		button = (Button) findViewById(R.id.callButton);
+		callButton = (Button) findViewById(R.id.callButton);
 
 		// Add PhoneStateListener
 		PhoneCallListener phoneListener = new PhoneCallListener();
 		TelephonyManager telephonyManager = (TelephonyManager) this.getSystemService(Context.TELEPHONY_SERVICE);
 
 		// Add Button Listener
-		button.setOnClickListener(new View.OnClickListener()
+		callButton.setOnClickListener(new View.OnClickListener()
 		{
 			@Override
 			public void onClick(View v)
