@@ -1,7 +1,9 @@
 package com.mystatscloud.onpoint;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -263,7 +265,28 @@ public class PracticeExamActivity extends ActionBarActivity
 
 			scoreFormat.setRoundingMode(RoundingMode.CEILING);
 
-			scoreTextView.setText(scoreFormat.format((float)totalCorrectAnswers/testQuestions.size()*100)+"%");
+			scoreTextView.setText(scoreFormat.format((float) totalCorrectAnswers / testQuestions.size() * 100) + "%");
+
+			Float score = (float) totalCorrectAnswers / testQuestions.size() * 100;
+
+
+			SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
+			SharedPreferences.Editor editor = sharedPref.edit();
+
+			Float highScore = sharedPref.getFloat("highScore", 0);
+
+			if(highScore < score)
+			{
+				editor.putFloat("highScore", score);
+				editor.commit();
+				highScore = score;
+
+			}
+
+			TextView highScoreTextView = (TextView) findViewById(R.id.highScoreTextView);
+
+			highScoreTextView.setText(scoreFormat.format((float) highScore) + "%");
+
 
 		}
 	}
