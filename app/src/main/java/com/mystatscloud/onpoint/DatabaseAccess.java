@@ -73,22 +73,25 @@ public class DatabaseAccess
 
 	/**
 	 * Read all test questions from the database corresponding to selected skill level.
-	 *
+	 * @param skills the list of skill levels that we want to return questions for(Ex: [1,2,3] or [3,5,6]
 	 * @return a List of test questions
 	 */
 	public List<ExamQuestion> getTestQuestions(List<String> skills)
 	{
 		List<ExamQuestion> questions = new ArrayList<>();
 
+		// create a raw SQL string. This will be used in the where VAR in (?)
 		String skillsSqlString = "";
 
 		for (int i = 0; i < skills.size(); i++)
 		{
+			// put commas between all the quoted where arguments
 			if(i != skills.size() - 1)
 			{
 				skillsSqlString += '"' + skills.get(i) + '"' + ", ";
 			}
 
+			// only quote the where clause arguments
 			else
 			{
 				skillsSqlString += '"' + skills.get(i) + '"';
@@ -96,23 +99,29 @@ public class DatabaseAccess
 
 		}
 
-
+		// this line of code can be used for int/float type of arguments in the where clause.
 		//skillsSqlString = TextUtils.join(",",skills);
 
+		// query the database
 		Cursor cursor = database.rawQuery("SELECT * FROM testQuestions where level in (" + skillsSqlString + ")", null);
 
+		// go to the first record return from the database
 		cursor.moveToFirst();
 
+		// while there are still more record to get
 		while (!cursor.isAfterLast())
 		{
+			// create a new exam question
 			ExamQuestion newQuestion = new ExamQuestion(cursor.getInt(0), cursor.getString(1),cursor.getInt(2),cursor.getString(3),cursor.getInt(4));
 
+			// add the question the the list of questions to be returned
 			questions.add(newQuestion);
 
 			cursor.moveToNext();
 
 		}
 
+		//close the database
 		cursor.close();
 
 		return questions;
@@ -120,12 +129,12 @@ public class DatabaseAccess
 
 	/**
 	 * Read the "explained answer" from the database using question id as PK.
-	 *
+	 * @param questionID the single primary key that corresponds to the questionID
 	 * @return a List of test question answers
 	 */
 	public String getExplainedAnswer(int questionID)
 	{
-
+		// there is only one answer explanation per question, so just reurn it as a single string
 		Cursor cursor = database.rawQuery("SELECT explainedAnswer FROM testAnswersExplained where questionID = " + questionID, null);
 
 		cursor.moveToFirst();
@@ -135,26 +144,33 @@ public class DatabaseAccess
 
 	/**
 	 * Read all test answers from the database corresponding to question id.
-	 *
+	 * @param questionID the single primary key that corresponds to the questionID
 	 * @return a List of test question answers
 	 */
 	public examAnswers getExamAnswers(int questionID)
 	{
 
+		// query the database for all answers that correspond to the questions primary key
 		Cursor cursor = database.rawQuery("SELECT * FROM testAnswers where questionID = " + questionID, null);
 
 		cursor.moveToFirst();
 
+		// create a list of answers to return
 		List<String> answers = new ArrayList<>();
 
+		// need to keep a counter to find the index of the correct answer
 		int correctAnswerIndex = 0;
 		int correctAnswer = 0;
 
+		// loop through all of the sql query results
 		while (!cursor.isAfterLast())
 		{
 
+			// add each answer to a list
 			answers.add(cursor.getString(1));
 
+			// if the correct answer column(index 2) is set to true(true = 1 because there is no boolean type in sqlite)
+			// then save the index of the correct answer
 			if(cursor.getInt(2) == 1)
 			{
 				correctAnswer = correctAnswerIndex;
@@ -166,10 +182,12 @@ public class DatabaseAccess
 
 		}
 
+		// create a new exam answers object and populate it with the info from the database
 		examAnswers newAnswers = new examAnswers(questionID, answers, correctAnswer);
 
 		cursor.close();
 
+		// return the answer object
 		return newAnswers;
 	}
 
@@ -180,23 +198,28 @@ public class DatabaseAccess
 	 */
 	public List<String> getTestCategories()
 	{
+
+		// a list to store the string values returned from the DB
 		List<String> list = new ArrayList<>();
 
+		// retrieve all of the unique question categories from the sql database
 		Cursor cursor = database.rawQuery("SELECT distinct type FROM testQuestions", null);
 
 		cursor.moveToFirst();
 
 		while (!cursor.isAfterLast())
 		{
-
+			// these test categories are just string to add them to a list
 			list.add(cursor.getString(0));
 
 			cursor.moveToNext();
 
 		}
 
+		// close the DB
 		cursor.close();
 
+		// return the list
 		return list;
 	}
 
@@ -207,23 +230,29 @@ public class DatabaseAccess
 	 */
 	public List<String> getTestSkillLevels()
 	{
+		// alist to return the string values from the DB
 		List<String> list = new ArrayList<>();
 
+		// query the DB for a distinct/unique skill level
 		Cursor cursor = database.rawQuery("SELECT distinct level FROM testQuestions", null);
 
 		cursor.moveToFirst();
 
+		// loop through query results
 		while (!cursor.isAfterLast())
 		{
 
+			// even though these skill values are integers we want them as strings
 			list.add(cursor.getString(0));
 
 			cursor.moveToNext();
 
 		}
 
+		// close the DB
 		cursor.close();
 
+		// return the  list of skill levels
 		return list;
 	}
 
