@@ -26,7 +26,35 @@
 		android:textAppearance="?android:attr/textAppearanceMedium"
 		android:text="100%"
 		android:id="@+id/score"
+		android:layout_below="@+id/textView19"
+		android:layout_centerHorizontal="true"/>
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceMedium"
+		android:text="Score"
+		android:id="@+id/textView19"
 		android:layout_below="@+id/textView18"
 		android:layout_centerHorizontal="true"
-		android:layout_marginTop="65dp"/>
+		android:layout_marginTop="52dp"/>
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceMedium"
+		android:text="High Score"
+		android:id="@+id/textView20"
+		android:layout_below="@+id/score"
+		android:layout_centerHorizontal="true"
+		android:layout_marginTop="115dp"/>
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceMedium"
+		android:text="0%"
+		android:id="@+id/highScoreTextView"
+		android:layout_below="@+id/textView20"
+		android:layout_centerHorizontal="true"/>
 </RelativeLayout>

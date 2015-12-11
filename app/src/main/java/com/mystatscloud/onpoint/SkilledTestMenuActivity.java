@@ -19,8 +19,7 @@ public class SkilledTestMenuActivity extends ActionBarActivity
 	protected void onCreate(Bundle savedInstanceState)
 	{
 
-		selectedSkills.add("6");
-		selectedSkills.add("7");
+		selectedSkills.add("3");
 
 		super.onCreate(savedInstanceState);
 
