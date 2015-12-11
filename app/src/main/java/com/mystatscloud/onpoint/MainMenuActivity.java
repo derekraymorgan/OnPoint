@@ -5,19 +5,28 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 
+/**
+ * This activity handles the main menu of the app
+ */
 public class MainMenuActivity extends ActionBarActivity
 {
 
+	/**
+	 * connect the appropriate view to this activity
+	 * @param savedInstanceState
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
+
 		setContentView(R.layout.activity_main_menu);
 	}
 
 	/** Called when the user clicks the about menu item button */
 	public void showAboutView(View view)
 	{
+		// load the intent and start the about activity
 		Intent myIntent = new Intent(MainMenuActivity.this, AboutActivity.class);
 
 		MainMenuActivity.this.startActivity(myIntent);
@@ -26,6 +35,8 @@ public class MainMenuActivity extends ActionBarActivity
 	/** Called when the user clicks the faq menu item button */
 	public void showFaqView(View view)
 	{
+
+		// load the intent and start the FAQ activity
 		Intent myIntent = new Intent(MainMenuActivity.this, FaqActivity.class);
 
 		MainMenuActivity.this.startActivity(myIntent);
