@@ -16,7 +16,10 @@ public class ScheduleTestPhoneActivity extends ActionBarActivity {
 	final Context context = this;
 	private Button callButton;
 
-	@Override
+	/**
+	 * Display schedule a test phone layout when created
+	 * @param savedInstanceState
+	 */
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_schedule_phone);
@@ -37,6 +40,9 @@ public class ScheduleTestPhoneActivity extends ActionBarActivity {
 		});
 	}
 
+	/**
+	 * Call a phone number
+	 */
 	private void call()
 	{
 		Intent phoneCall = new Intent(Intent.ACTION_CALL);

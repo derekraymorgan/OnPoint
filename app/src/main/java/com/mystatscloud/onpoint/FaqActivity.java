@@ -16,7 +16,10 @@ public class FaqActivity extends ActionBarActivity {
 	private ArrayList<ExpandListParent> ExpListItems;
 	private ExpandableListView ExpandList;
 
-	@Override
+	/**
+	 * Display FAQ activity layout when created
+	 * @param savedInstanceState
+	 */
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_faq);

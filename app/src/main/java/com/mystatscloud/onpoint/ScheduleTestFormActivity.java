@@ -30,17 +30,27 @@ public class ScheduleTestFormActivity extends ActionBarActivity {
     private static final String password = "seunr2015";
     private static final String subjectMessage = "Schedule a Test Request";
 
-    @Override
+    /**
+     * Display schedule a test form layout when created
+     * @param savedInstanceState
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schedule_form);
     }
 
+    /**
+     * Submit form requrest
+     * @param button correspond button to an action
+     */
     public void submitRequest(View button)
     {
         sendMail();
     }
 
+    /**
+     * Send an e-mail
+     */
     private void sendMail() {
         Session session = createSessionObject();
 
@@ -56,6 +66,13 @@ public class ScheduleTestFormActivity extends ActionBarActivity {
         }
     }
 
+    /**
+     * Create a message
+     * @param session Javamail session
+     * @return created message
+     * @throws MessagingException
+     * @throws UnsupportedEncodingException
+     */
     private Message createMessage(Session session) throws MessagingException, UnsupportedEncodingException {
         String name, phone, email, company, message;
         String PHONE_REGEX = "^(?:(?:\\+?1\\s*(?:[.-]\\s*)?)?(?:\\(\\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\\s*\\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\\s*(?:[.-]\\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\\s*(?:[.-]\\s*)?([0-9]{4})(?:\\s*(?:#|x\\.?|ext\\.?|extension)\\s*(\\d+))?$";
@@ -142,6 +159,10 @@ public class ScheduleTestFormActivity extends ActionBarActivity {
         return e_message;
     }
 
+    /**
+     * Create a Javamail session
+     * @return session properties
+     */
     private Session createSessionObject() {
         Properties properties = new Properties();
         properties.put("mail.smtp.auth", "true");
@@ -156,6 +177,9 @@ public class ScheduleTestFormActivity extends ActionBarActivity {
         });
     }
 
+    /**
+     * Send a mail task, asynchronously
+     */
     private class SendMailTask extends AsyncTask<Message, Void, Void> {
         private ProgressDialog progressDialog;
 
