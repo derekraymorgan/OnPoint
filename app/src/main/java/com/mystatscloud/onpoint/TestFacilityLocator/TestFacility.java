@@ -1,5 +1,8 @@
 package com.mystatscloud.onpoint.TestFacilityLocator;
 
+/**
+ * Represents test facility address information
+ */
 public class TestFacility {
     private String address;
     private String city;
@@ -17,6 +20,9 @@ public class TestFacility {
         this.fax = fax;
     }
 
+    /**
+     * @return Address of facility
+     */
     public String getAddress() {
         return address;
     }
@@ -25,6 +31,9 @@ public class TestFacility {
         this.address = address;
     }
 
+    /**
+     * @return City of facility
+     */
     public String getCity() {
         return city;
     }
@@ -33,6 +42,9 @@ public class TestFacility {
         this.city = city;
     }
 
+    /**
+     * @return State of facility
+     */
     public String getState() {
         return state;
     }
@@ -41,22 +53,33 @@ public class TestFacility {
         this.state = state;
     }
 
+    /**
+     * @return Zipcode of facility
+     */
     public int getZipCode() {
         return zipCode;
     }
+
 
     public void setZipCode(int zipCode) {
         this.zipCode = zipCode;
     }
 
+    /**
+     * @return Phone number of facility
+     */
     public String getPhone() {
         return phone;
     }
+
 
     public void setPhone(String phone) {
         this.phone = phone;
     }
 
+    /**
+     * @return Fax number of facility
+     */
     public String getFax() {
         return fax;
     }

@@ -23,11 +23,17 @@ import java.net.URLEncoder;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Handles test facility locator activity of application
+ */
 public class TestFacilityLocatorActivity extends ActionBarActivity {
 
 	ListView listView;
 	EditText zipField;
 
+	/**
+	 * On creation of activity
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -35,6 +41,7 @@ public class TestFacilityLocatorActivity extends ActionBarActivity {
 
 		final InputMethodManager im = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
 
+		/* Get components of the layout */
 		listView = (ListView) findViewById(R.id.test_facility_locator_list_view);
 		zipField = (EditText) findViewById(R.id.test_facility_locator_zip_field);
 
@@ -104,7 +111,18 @@ public class TestFacilityLocatorActivity extends ActionBarActivity {
 				startActivity(intent);
 			}
 		});
+	}
 
+	/**
+	 * Determines whether a string is a valid int
+	 * @param s string to examine
+	 * @return Returns true if the string is a valid integer, false otherwise
+	 */
+	public static boolean isInteger(String s) {
+		Scanner sc = new Scanner(s.trim());
+		if(!sc.hasNextInt()) return false;
+		sc.nextInt();
+		return !sc.hasNext();
 	}
 
 	/**
@@ -135,19 +153,5 @@ public class TestFacilityLocatorActivity extends ActionBarActivity {
 
 			return convertView;
 		}
-	}
-
-
-
-	/**
-	 * Determines whether a string is a valid int
-	 * @param s string to examine
-	 * @return Returns true if the string is a valid integer, false otherwise
-	 */
-	public static boolean isInteger(String s) {
-		Scanner sc = new Scanner(s.trim());
-		if(!sc.hasNextInt()) return false;
-		sc.nextInt();
-		return !sc.hasNext();
 	}
 }
