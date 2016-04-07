@@ -86,6 +86,7 @@
 			android:clickable="true"
 			android:focusable="false"
 			android:onClick="showResourcesView"/>
+
 	</LinearLayout>
 
 	<!--<TextView
