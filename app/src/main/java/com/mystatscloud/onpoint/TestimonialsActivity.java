@@ -17,27 +17,23 @@ public class TestimonialsActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState); // make sure onCreate is called for parent class
 
         // temporary place holder testimonial
-        String tempDescription = "This is a temporary testimonial about the On Point app.";
-        String tempAuthor = "-Group 17";
-        String tempDate = "12/1/15";
-        int tempImgResource = R.drawable.gold;
+        String tempDescription = "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do " +
+                "eiusmod tempor incididunt ut labore et dolore magna aliqua.\"";
+        String tempAuthor = "- Bob Dylan";
+        String tempDate = "4/7/16";
+        int tempImgResource = R.drawable.face;
 
+        setContentView(R.layout.activity_testimonials);  // set the xml file being used to draw the activity
 
-        // set the xml file being used to draw the activity
-        setContentView(R.layout.activity_testimonials);
-
-
-        // fetch the list view in the xml file to operate on
-		testimonialView = (ListView) findViewById(R.id.testimonial_layout);
+		testimonialView = (ListView) findViewById(R.id.testimonial_layout);  // fetch the list view in the xml file to operate on
 
         // create and adapter to move data to the list view
         TestimonialsAdapter adapter = new TestimonialsAdapter(getApplicationContext(),R.layout.fragment_testimonials_row);
 
         // populate the data adapter with the testimonials
         int i;
-        int testimonialCount = 10;
-        for( i = 0; i < testimonialCount; i++)
-        {
+        int testimonialCount = 1;
+        for( i = 0; i < testimonialCount; i++){
 
             TestimonialClass obj = new TestimonialClass(tempDescription,tempAuthor,tempDate,tempImgResource);
             adapter.add(obj);
