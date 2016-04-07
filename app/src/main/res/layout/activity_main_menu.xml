@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	tools:context="com.mystatscloud.onpoint.MainActivity"
+	>
+
+	<ImageView
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:id="@+id/BackGround"
+		android:src="@drawable/bg_gears"
+		android:scaleType="fitXY"/>
+
+	<LinearLayout
+		android:orientation="vertical"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_alignParentTop="true"
+		android:layout_alignParentLeft="true"
+		android:layout_alignParentStart="true"
+		android:layout_marginTop="50sp">
+
+		<Button
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:text="About"
+			android:id="@+id/aboutButton"
+			android:clickable="true"
+			android:onClick="showAboutView"/>
+
+		<Button
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:text="Testimonials"
+			android:id="@+id/testimonialsButton"
+			android:clickable="true"
+			android:focusable="false"
+			android:onClick="showTestimonialsView"/>
+
+		<Button
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:text="Practice Exam"
+			android:id="@+id/practiceExamButton"
+			android:layout_gravity="center_horizontal"
+			android:clickable="true"
+			android:focusable="false"
+			android:onClick="showPracticeExamView"/>
+
+		<Button
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:text="Schedule a test"
+			android:id="@+id/testSceduleButton"
+			android:layout_gravity="center_horizontal"
+			android:clickable="true"
+			android:focusable="false"
+			android:onClick="showScheduleTestView"/>
+
+		<Button
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:text="Test Facility Locator"
+			android:id="@+id/testFacilityLocatorButton"
+			android:clickable="true"
+			android:focusable="false"
+			android:onClick="showTestFacilityLocatorView"/>
+
+		<Button
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:text="FAQs"
+			android:id="@+id/faqButton"
+			android:clickable="true"
+			android:focusable="false"
+			android:onClick="showFaqView"/>
+
+		<Button
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:text="Resources"
+			android:id="@+id/resourcesButton"
+			android:clickable="true"
+			android:focusable="false"
+			android:onClick="showResourcesView"/>
+	</LinearLayout>
+
+	<!--<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceLarge"
+		android:text="On Point"
+		android:id="@+id/MenuTitle"
+		android:layout_alignParentTop="true"
+		android:layout_centerHorizontal="true"
+		android:textColor="#ffffff"
+		android:textSize="30sp"/> -->
+
+	<ImageView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:id="@+id/menuLogo"
+		android:layout_below="@+id/MenuTitle"
+		android:layout_centerHorizontal="true"
+		android:layout_marginTop="43dp"/>
+
+</RelativeLayout>
