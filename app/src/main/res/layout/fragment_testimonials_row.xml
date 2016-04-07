@@ -22,6 +22,7 @@
 
         <TextView
             android:id="@+id/testimonial_description"
+            android:textSize="@dimen/abc_text_size_small_material"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/testimonial_image"
@@ -49,6 +50,7 @@
 
         <TextView
             android:id="@+id/testimonial_author"
+            android:textSize="@dimen/abc_text_size_medium_material"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toLeftOf="@id/testimonial_date"
