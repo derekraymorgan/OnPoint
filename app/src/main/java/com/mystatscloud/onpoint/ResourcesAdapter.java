@@ -1,16 +1,22 @@
 package com.mystatscloud.onpoint;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
+import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.app.Activity;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class ResourcesAdapter extends ArrayAdapter<ResourceClass> {
 
@@ -83,5 +89,8 @@ public class ResourcesAdapter extends ArrayAdapter<ResourceClass> {
         // return the row to be rendered
         return row;
     }
+
+
+
 }
 
