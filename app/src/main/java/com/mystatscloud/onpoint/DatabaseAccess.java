@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import com.mystatscloud.onpoint.TestFacilityLocator.TestFacility;
 import com.mystatscloud.onpoint.expandListView.Classes.ExpandListChild;
@@ -76,7 +77,7 @@ public class DatabaseAccess
 	 * @param skills the list of skill levels that we want to return questions for(Ex: [1,2,3] or [3,5,6]
 	 * @return a List of test questions
 	 */
-	public List<ExamQuestion> getTestQuestions(List<String> skills)
+	public List<ExamQuestion> getTestQuestions(List<String> skills, List<String> categories)
 	{
 		List<ExamQuestion> questions = new ArrayList<>();
 
@@ -99,11 +100,33 @@ public class DatabaseAccess
 
 		}
 
+		// create a raw SQL string. This will be used in the where VAR in (?)
+		String categoriesSqlString = "";
+
+		for (int i = 0; i < categories.size(); i++)
+		{
+			// put commas between all the quoted where arguments
+			if(i != categories.size() - 1)
+			{
+				categoriesSqlString += '"' + categories.get(i) + '"' + ", ";
+			}
+
+			// only quote the where clause arguments
+			else
+			{
+				categoriesSqlString += '"' + categories.get(i) + '"';
+			}
+
+		}
+
 		// this line of code can be used for int/float type of arguments in the where clause.
 		//skillsSqlString = TextUtils.join(",",skills);
+		Log.d("Cate",categoriesSqlString);
+		Log.d("Skill",skillsSqlString);
 
 		// query the database
-		Cursor cursor = database.rawQuery("SELECT * FROM testQuestions where level in (" + skillsSqlString + ")", null);
+		Cursor cursor = database.rawQuery("SELECT * FROM testQuestions where level in (" + skillsSqlString + ") or type in (" + categoriesSqlString + ")", null);
+
 
 		// go to the first record return from the database
 		cursor.moveToFirst();

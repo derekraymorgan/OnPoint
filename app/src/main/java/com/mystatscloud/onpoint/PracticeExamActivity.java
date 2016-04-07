@@ -50,8 +50,19 @@ public class PracticeExamActivity extends ActionBarActivity
 		// grab some saved data from the last activity
 		Bundle selectedValues = getIntent().getExtras();
 
-		// get the option selected from the previous activity in order to determine which test question to display
-		ArrayList<String> selectedSkills = selectedValues.getStringArrayList("selectedSkills");
+		ArrayList<String> selectedSkills = new ArrayList<String>();
+		ArrayList<String> selectedCategories = new ArrayList<String>();
+
+
+		if(getIntent().hasExtra("selectedSkills"))
+		{
+			selectedSkills = selectedValues.getStringArrayList("selectedSkills");
+		}
+
+		if(getIntent().hasExtra("selectedCategories"))
+		{
+			selectedCategories = selectedValues.getStringArrayList("selectedCategories");
+		}
 
 		// create an instance of the DB
 		DatabaseAccess databaseAccess = DatabaseAccess.getInstance(this);
@@ -60,7 +71,7 @@ public class PracticeExamActivity extends ActionBarActivity
 		databaseAccess.open();
 
 		// get the test questions
-		testQuestions = databaseAccess.getTestQuestions(selectedSkills);
+		testQuestions = databaseAccess.getTestQuestions(selectedSkills, selectedCategories);
 
 		databaseAccess.close();
 
