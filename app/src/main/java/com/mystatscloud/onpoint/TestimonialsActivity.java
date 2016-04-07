@@ -11,7 +11,8 @@ public class TestimonialsActivity extends ActionBarActivity {
 
     // Override the onCreate interface method
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(Bundle savedInstanceState)
+    {
 
         super.onCreate(savedInstanceState); // make sure onCreate is called for parent class
 
@@ -21,9 +22,13 @@ public class TestimonialsActivity extends ActionBarActivity {
         String tempDate = "12/1/15";
         int tempImgResource = R.drawable.gold;
 
-        setContentView(R.layout.activity_testimonials);  // set the xml file being used to draw the activity
 
-		testimonialView = (ListView) findViewById(R.id.testimonial_layout);  // fetch the list view in the xml file to operate on
+        // set the xml file being used to draw the activity
+        setContentView(R.layout.activity_testimonials);
+
+
+        // fetch the list view in the xml file to operate on
+		testimonialView = (ListView) findViewById(R.id.testimonial_layout);
 
         // create and adapter to move data to the list view
         TestimonialsAdapter adapter = new TestimonialsAdapter(getApplicationContext(),R.layout.fragment_testimonials_row);
@@ -31,7 +36,8 @@ public class TestimonialsActivity extends ActionBarActivity {
         // populate the data adapter with the testimonials
         int i;
         int testimonialCount = 10;
-        for( i = 0; i < testimonialCount; i++){
+        for( i = 0; i < testimonialCount; i++)
+        {
 
             TestimonialClass obj = new TestimonialClass(tempDescription,tempAuthor,tempDate,tempImgResource);
             adapter.add(obj);

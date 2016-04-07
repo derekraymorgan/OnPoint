@@ -13,10 +13,12 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TestimonialsAdapter extends ArrayAdapter<TestimonialClass>{
+public class TestimonialsAdapter extends ArrayAdapter<TestimonialClass>
+{
 
     // this static class is used to hold the information for the list-item being rendered
-    static class TestimonialBuffer{
+    static class TestimonialBuffer
+    {
         ImageView image;
         TextView description;
         TextView author;
@@ -27,32 +29,37 @@ public class TestimonialsAdapter extends ArrayAdapter<TestimonialClass>{
     private List<TestimonialClass> testimonials = new ArrayList<>();
 
     // constructor
-    public TestimonialsAdapter(Context context, int resource) {
+    public TestimonialsAdapter(Context context, int resource)
+    {
 
         super(context,resource);
     }
 
     // add method used to insert list-items into the adapter's internal list
-    public void add(TestimonialClass object){
+    public void add(TestimonialClass object)
+    {
         testimonials.add(object);
         super.add(object);
     }
 
     // getCount() interface method used to get the number of list-items in the adapter
     @Override
-    public int getCount() {
+    public int getCount()
+    {
         return this.testimonials.size();
     }
 
     // getItem() interface method used to get a particular list-item to work with
     @Override
-    public TestimonialClass getItem(int position) {
+    public TestimonialClass getItem(int position)
+    {
         return this.testimonials.get(position);
     }
 
     // getView() interface method detailing how each list-item in the adapter is rendered
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, ViewGroup parent)
+    {
 
         TestimonialBuffer buffer;
         View row = convertView;
@@ -60,23 +67,45 @@ public class TestimonialsAdapter extends ArrayAdapter<TestimonialClass>{
 
         //  when views are created rapidly it is more efficient to convert a view already in memory rather than create new one
         // if the row for the list-item isn't being converted however then a new one needs to be created
-        if( convertView == null ) {
-            inflater = LayoutInflater.from(getContext()); // get a reference to the inflater being used to render views
-            row = inflater.inflate(R.layout.fragment_testimonials_row, parent, false); // inflate a new row from the xml template
-            buffer = new TestimonialBuffer(); // create a buffer to hold a collection of views for the row
-            buffer.image = (ImageView) row.findViewById(R.id.testimonial_image); // specify an image view to be part of each row
-            buffer.description = (TextView) row.findViewById(R.id.testimonial_description); // specify how the text view looks showing the testimonial
-            buffer.author = (TextView) row.findViewById(R.id.testimonial_author); // specify how the text view looks showing the author
-            buffer.date = (TextView) row.findViewById(R.id.testimonial_date); // specify how the text view looks showing the date
-            row.setTag(buffer); // apply the views to the row
+        if( convertView == null )
+        {
+            // get a reference to the inflater being used to render views
+            inflater = LayoutInflater.from(getContext());
+
+            // inflate a new row from the xml template
+            row = inflater.inflate(R.layout.fragment_testimonials_row, parent, false);
+
+            // create a buffer to hold a collection of views for the row
+            buffer = new TestimonialBuffer();
+
+            // specify an image view to be part of each row
+            buffer.image = (ImageView) row.findViewById(R.id.testimonial_image);
+
+            // specify how the text view looks showing the testimonial
+            buffer.description = (TextView) row.findViewById(R.id.testimonial_description);
+
+            // specify how the text view looks showing the author
+            buffer.author = (TextView) row.findViewById(R.id.testimonial_author);
+
+            // specify how the text view looks showing the date
+            buffer.date = (TextView) row.findViewById(R.id.testimonial_date);
+
+            // apply the views to the row
+            row.setTag(buffer);
         }
+
         // otherwise use a set of views already in memory to render the new row
-        else {
+        else
+        {
             buffer = (TestimonialBuffer) row.getTag();
         }
 
         // regardless of a view being recycled or newly created, update the row for the item getView is being called on
-        TestimonialClass obj = getItem(position); // get the item being rendered
+
+
+        // get the item being rendered
+        TestimonialClass obj = getItem(position);
+
         buffer.image.setImageResource(obj.getImgResource()); // set the img resource of the view to the img resource of this list-item
         buffer.description.setText(obj.getDescription()); // set the testimonial in the view to the testimonial of this list-item
         buffer.description.setTextColor(Color.DKGRAY); // set the color for this text
