@@ -9,6 +9,6 @@ $(document).ready(function(){
 		autoplaySpeed: 2000,
 		pauseOnHover: false,
 		centerPadding: '100px'
-		
+
 	});
 });
