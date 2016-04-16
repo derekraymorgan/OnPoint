@@ -1,6 +1,5 @@
 $(document).ready(function(){
 	$('.homeSlider').slick({
-
 		dots: false,
 		slidesToShow: 3,
 		slidesToScroll: 1,
