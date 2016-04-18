@@ -3,7 +3,10 @@
     color: #fff;
     text-align: center;
     background-color: #159957;
-    background-image: linear-gradient(120deg, #155799, #159957);
+	background-image: -moz-linear-gradient(top, #587C9C, #47637E);
+	background-image: -webkit-linear-gradient(top, #587C9C, #47637E);
+	background-image: -ms-linear-gradient(top, #587C9C, #47637E);
+	background-image: linear-gradient(top, #587C9C, #47637E);
 }
 
 
@@ -25,8 +28,11 @@
 
 .headerImg
 {
+	max-width: 50%;
+	max-height: 50%;
     text-align: center;
     margin: 0 auto;
+	margin-top: 5%;
 }
 
 .mainContent
@@ -64,7 +70,11 @@
     color: #fff;
     text-align: center;
     background-color: #159957;
-    background-image: linear-gradient(120deg, #155799, #159957);
+	background-image: -moz-linear-gradient(top, #284763, #2E5171);
+	background-image: -webkit-linear-gradient(top, #284763, #2E5171);
+	background-image: -ms-linear-gradient(top, #284763, #2E5171);
+	background-image: linear-gradient(top, #284763, #2E5171);
+	padding: 4em 0;
 }
 
 body
@@ -93,13 +103,14 @@ a:hover
     margin-top: 2rem;
     margin-bottom: 1rem;
     font-weight: normal;
-    color: #159957;
+    color: #007897;
 }
 
 .righty
 {
     float: right;
-    width: 50%;
+	max-width: 40%;
+	height: auto;
 }
 
 /* Small */
@@ -108,7 +119,7 @@ a:hover
 
     body
     {
-        font-size: 1.65em;
+        font-size: 1.55em;
         line-height: 1.5;
     }
 
@@ -120,7 +131,7 @@ a:hover
 
     body
     {
-        font-size: 1.8em;
+        font-size: 1.6em;
         line-height: 1.5;
     }
 }
@@ -131,7 +142,7 @@ a:hover
 
     body
     {
-        font-size: 2em;
+        font-size: 1.8em;
         line-height: 1.5;
     }
 
