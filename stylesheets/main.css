@@ -3,7 +3,10 @@
     color: #fff;
     text-align: center;
     background-color: #159957;
-    background-image: linear-gradient(120deg, #155799, #159957);
+	background-image: -moz-linear-gradient(top, #284763, #2E5171);
+	background-image: -webkit-linear-gradient(top, #284763, #2E5171);
+	background-image: -ms-linear-gradient(top, #284763, #2E5171);
+	background-image: linear-gradient(top, #284763, #2E5171);
 }
 
 /* the slides */
@@ -47,7 +50,11 @@
     color: #fff;
     text-align: center;
     background-color: #159957;
-    background-image: linear-gradient(120deg, #155799, #159957);
+	background-image: -moz-linear-gradient(top, #284763, #2E5171);
+	background-image: -webkit-linear-gradient(top, #284763, #2E5171);
+	background-image: -ms-linear-gradient(top, #284763, #2E5171);
+	background-image: linear-gradient(top, #284763, #2E5171);
+	padding: 4em 0;
 }
 
 body
@@ -76,13 +83,14 @@ a:hover
     margin-top: 2rem;
     margin-bottom: 1rem;
     font-weight: normal;
-    color: #159957;
+    color: #007897;
 }
 
 .righty
 {
     float: right;
-    width: 50%;
+	max-width: 40%;
+	height: auto;
 }
 
 /* Small */
