@@ -7,7 +7,7 @@
 	<meta charset="UTF-8">
 	<title>On Point</title>
 
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=.5">
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -28,16 +28,25 @@
 	<link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
 	<link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
 	-->
+
 	<!--favicon images with different resolutions-->
 	<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="96x96" href="images/favicon-96x96.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
 
+
+
+	<link rel="stylesheet" type="text/css" href="slick-1.5.9/slick/slick.css"/>
+
+	<link rel="stylesheet" type="text/css" href="slick-1.5.9/slick/slick-theme.css"/>
+
+
+	<script type="text/javascript" src="slick-1.5.9/slick/slick.min.js"></script>
+
+
 	<link rel="stylesheet" type="text/css" href="stylesheets/main.css">
 
-	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.5.9/slick.css"/>
-
-	<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.5.9/slick.min.js"></script>
+	<script type="text/javascript" src="javascripts/main.js"></script>
 
 </head>
 
@@ -111,61 +120,119 @@
 
 </nav>
 
-<div class="mainContent row">
+<div class="mainContent">
 
-	<div class="homeSlider">
-		<div>your content</div>
-		<div>your content</div>
-		<div>your content</div>
+	<div class="row">
+
+		<h2 id="featuresTitle">
+
+			Features of On Point
+
+		</h2>
+
 	</div>
 
 	<div class="row">
 
-		<div class="col-xs-12">
-
-			<h3 class="sectionTitle">
-
-				What is On Point?
-
-			</h3>
-
-			<img src="images/skillGap.png" class="img-responsive righty" alt="Responsive image">
-
-			<p>
-
-				On Point is a phone application that ensures manufacturers have access to a highly sought resource, ACT's
-				National Career Readiness Certificate (NCRC). Under the auspices of Nevada Industry Excellence (NVIE), On Point
-				is an effort associated with the Nevada Manufacturing Sector Council, striving to motivate a minimum of 40
-				manufacturers in Nevada to utilize the NCRC as a tool to hire a skilled workforce or promote from within by
-				the end of 2015.
-
-				<br/>
-				<br/>
-
-				Nevada’s manufacturing industry faces the problem of identifying and recruiting well versed qualified
-				employees. The ACT National Career Readiness Certificate (NCRC) is able to determine if a potential employee
-				is capable of the needed manufacturing skills that leaders are currently searching for. The ACT NCRC is used
-				to evaluate a person’s core problem-solving abilities. The ACT NCRC evaluates its users by giving a bronze,
-				silver, gold, or platinum certificate based on scores obtained through the NCRC WorkKeys® Assessments.
-				At this point in time, the leaders of the manufacturing industry are not using the ACT NCRC due to a lack
-				of awareness for this powerful tool. On Point is a mobile application that will educate manufacturing leaders
-				and encourage the use of the ACT NCRC.
-
-				<br/>
-				<br/>
-
-				On Point’s primary goal is to make the ACT NCRC an industry standard for determining an employee's skills and
-				abilities; thus, allowing industry leaders to effectively evaluate potential employee skills and ability to
-				learn. On Point will inform Nevada’s manufacturing industry of the benefits that the NCRC has to offer.
-				On Point will provide many useful tools such as practice tests and exam scheduling assistance that will
-				benefit the Nevada manufacturing industry as a whole.
-
-			</p>
-
+		<div class="col-xs-4">
+			<div class="thumbnail">
+				<img src="images/homeSlider/about.png" class="featuresImage" alt="...">
+				<div class="caption">
+					<h3>About</h3>
+					<p>A major priority for On Point is to supply users with a more information about the ACT NCRC.
+						Flipping to the next page is as easy as swiping your finger on the screen.</p>
+				</div>
+			</div>
 		</div>
 
+		<div class="col-xs-4">
+			<div class="thumbnail">
+				<img src="images/homeSlider/faq1.png" class="featuresImage" alt="...">
+				<div class="caption">
+					<h3>Frequently Asked Questions</h3>
+					<p>After knowing more about the ACT NCRC you will surley have more questions about it, this is the place to get the answers you need.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-xs-4">
+			<div class="thumbnail">
+				<img src="images/homeSlider/test3.png" class="featuresImage" alt="...">
+				<div class="caption">
+					<h3>Customized Practice Tests</h3>
+					<p>Only practice the subject in which you need to improve on or only practice at a particular skill level.</p>
+				</div>
+			</div>
+		</div>
 
 	</div>
+
+	<div class="row">
+
+		<div class="col-xs-4">
+			<div class="thumbnail">
+				<img src="images/homeSlider/test.png" class="featuresImage" alt="...">
+				<div class="caption">
+					<h3>Multiple Choice</h3>
+					<p>The practice test questions are multiple choice just like the real test. Each answer is thoroughly explained so that users can gain a better understanding.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-xs-4">
+			<div class="thumbnail">
+				<img src="images/homeSlider/test2.png" class="featuresImage" alt="...">
+				<div class="caption">
+					<h3>Real World</h3>
+					<p>The test questions are very practical, real world questions that help users understand their strengths and weaknesses.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-xs-4">
+			<div class="thumbnail">
+				<img src="images/homeSlider/contact.png" class="featuresImage" alt="...">
+				<div class="caption">
+					<h3>Contact Methods</h3>
+					<p>The application provides multiple ways to contact an On Point representative.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+
+		<div class="col-xs-4">
+			<div class="thumbnail">
+				<img src="images/homeSlider/locate.png" class="featuresImage" alt="...">
+				<div class="caption">
+					<h3>Facility Locator</h3>
+					<p>Find the nearest official ACT NCRC testing facility, then get directions to this facility with a simple click. </p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-xs-4">
+			<div class="thumbnail">
+				<img src="images/homeSlider/resources.png" class="featuresImage" alt="...">
+				<div class="caption">
+					<h3>Resources</h3>
+					<p>There are many resources about the ACT NCRC. Check these resources out to learn even more about it.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-xs-4">
+			<div class="thumbnail">
+				<img src="images/homeSlider/testimonials.png" class="featuresImage" alt="...">
+				<div class="caption">
+					<h3>Testimonials</h3>
+					<p>On Point offers testimonials from manufacturing leaders about the success they have had with  the ACT NCRC.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
 
 
 </div>
