@@ -22,8 +22,11 @@
 
 .headerImg
 {
+	max-width: 50%;
+	max-height: 50%;
     text-align: center;
     margin: 0 auto;
+	margin-top: 5%;
 }
 
 .mainContent
