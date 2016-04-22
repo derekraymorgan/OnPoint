@@ -12,21 +12,16 @@
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
 		android:id="@+id/imageView"
-		android:src="@drawable/bg_gears"
-		android:scaleType="fitXY"/>
+		android:src="@drawable/welder"
+		android:scaleType="centerCrop"/>
 
-	<TextView
-		android:layout_width="fill_parent"
-		android:layout_height="fill_parent"
-		android:textAppearance="?android:attr/textAppearanceLarge"
-		android:text="OnPoint"
-		android:id="@+id/MainText"
-		android:textAlignment="center"
-		android:visibility="visible"
-		android:textColor="#ffffff"
-		android:gravity="center_vertical"
-		android:textIsSelectable="false"
-		android:textSize="18sp"
-		android:textStyle="bold"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/logoImageView"
+        android:src="@drawable/logo"
+        android:scaleType="fitCenter"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp" />
 
 </RelativeLayout>

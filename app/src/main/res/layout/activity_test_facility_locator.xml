@@ -11,21 +11,22 @@
 	tools:context="com.mystatscloud.onpoint.TestFacilityLocatorActivity">
 
 	<TextView
-		android:layout_width="wrap_content"
+		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:textAppearance="?android:attr/textAppearanceLarge"
 		android:typeface="serif"
-		android:text="Locate Test Facility"
+		android:text="Locate \nTest Facility"
 		android:textSize="@dimen/titleSize"
-		android:id="@+id/textView4"
+		android:id="@+id/locate_test_facility_title"
 		android:layout_alignParentTop="true"
 		android:layout_centerHorizontal="true"
 		android:focusable="true"
 		android:focusableInTouchMode="true"
-		android:textColor="@color/DBlue" />
+		android:textColor="@color/DBlue"
+		android:gravity="center_horizontal" />
 
 	<View style="@style/Divider"
-		android:layout_below="@+id/textView4"
+		android:layout_below="@+id/locate_test_facility_title"
 		android:layout_alignParentLeft="true"
 		android:layout_alignParentStart="true"
 		android:id="@+id/view" />
@@ -34,9 +35,9 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:text="Enter Zip Code, City, or State:"
-		android:id="@+id/textView17"
-		android:layout_marginTop="59dp"
-		android:layout_below="@+id/textView4"
+		android:id="@+id/prompt_text_view"
+		android:layout_marginTop="20dp"
+		android:layout_below="@+id/locate_test_facility_title"
 		android:layout_alignParentLeft="true"
 		android:layout_alignParentStart="true"
 		android:paddingBottom="10dp"
@@ -47,9 +48,9 @@
 		android:layout_height="wrap_content"
 		android:ems="10"
 		android:id="@+id/test_facility_locator_zip_field"
-		android:layout_alignBottom="@+id/textView17"
-		android:layout_toRightOf="@+id/textView17"
-		android:layout_toEndOf="@+id/textView17"
+		android:layout_alignBottom="@+id/prompt_text_view"
+		android:layout_toRightOf="@+id/prompt_text_view"
+		android:layout_toEndOf="@+id/prompt_text_view"
 		android:layout_marginLeft="10dp"
 		android:maxLength="21"/>
 
@@ -57,8 +58,7 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:id="@+id/test_facility_locator_list_view"
-		android:layout_below="@+id/textView4"
+		android:layout_below="@+id/prompt_text_view"
 		android:layout_alignParentLeft="true"
-		android:layout_alignParentStart="true"
-		android:layout_marginTop="145dp"/>
+		android:layout_alignParentStart="false" />
 </RelativeLayout>
