@@ -20,6 +20,7 @@ public class ExpandListAdapter extends BaseExpandableListAdapter {
 
     private Context context;
     private ArrayList<ExpandListParent> groups;
+    private ArrayList<ExpandListParent> groupsAll;
 
     /**
      * Constructor
@@ -29,6 +30,7 @@ public class ExpandListAdapter extends BaseExpandableListAdapter {
     public ExpandListAdapter(Context context, ArrayList<ExpandListParent> groups) {
         this.context = context;
         this.groups = groups;
+        this.groupsAll = groups;
     }
 
     /**
@@ -179,6 +181,39 @@ public class ExpandListAdapter extends BaseExpandableListAdapter {
      */
     public boolean isChildSelectable(int arg0, int arg1) {
         return true;
+    }
+
+    public void filterData(String query){
+
+        query = query.toLowerCase();
+        Log.v("MyListAdapter", String.valueOf(continentList.size()));
+        continentList.clear();
+
+        if(query.isEmpty()){
+            continentList.addAll(originalList);
+        }
+        else {
+
+            for(Continent continent: originalList){
+
+                ArrayList<Country> countryList = continent.getCountryList();
+                ArrayList<Country> newList = new ArrayList<Country>();
+                for(Country country: countryList){
+                    if(country.getCode().toLowerCase().contains(query) ||
+                            country.getName().toLowerCase().contains(query)){
+                        newList.add(country);
+                    }
+                }
+                if(newList.size() > 0){
+                    Continent nContinent = new Continent(continent.getName(),newList);
+                    continentList.add(nContinent);
+                }
+            }
+        }
+
+        Log.v("MyListAdapter", String.valueOf(continentList.size()));
+        notifyDataSetChanged();
+
     }
 
 }
