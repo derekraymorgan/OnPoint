@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:minWidth="25dp"
     android:minHeight="25dp">
+
     <TextView
         android:text="Certification\n Levels"
         android:textAppearance="?android:attr/textAppearanceLarge"
