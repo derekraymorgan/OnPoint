@@ -3,9 +3,10 @@ package com.mystatscloud.onpoint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 
-public class MainActivity extends ActionBarActivity
+public class SplashActivity extends ActionBarActivity
 {
 
 	/**
@@ -17,6 +18,9 @@ public class MainActivity extends ActionBarActivity
 	{
 
 		super.onCreate(savedInstanceState);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
 
 		// load the splash screen
 		setContentView(R.layout.splash);
@@ -31,7 +35,7 @@ public class MainActivity extends ActionBarActivity
 			public void run()
 			{
 				// create the main menu
-				startActivity(new Intent(MainActivity.this, MainMenuActivity.class));
+				startActivity(new Intent(SplashActivity.this, MainMenuActivity.class));
 
 				// exit the old activity and destroy it so that a user cannot return to it
 				finish();

@@ -10,13 +10,32 @@
 	android:paddingTop="@dimen/activity_vertical_margin"
 	tools:context="com.mystatscloud.onpoint.TestimonialsActivity">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/titleSize"
+        android:textColor="@color/DBlue"
+        android:typeface="serif"
+        android:text="Testimonials"
+        android:id="@+id/textView21"
+        android:gravity="center"
+        android:layout_alignRight="@+id/testimonial_layout"
+        android:layout_alignEnd="@+id/testimonial_layout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <View style="@style/Divider"
+		android:layout_below="@+id/textView21"
+		android:layout_alignParentLeft="true"
+		android:layout_alignParentStart="true"
+		android:id="@+id/view3" />
+
 	<ListView
         android:id="@+id/testimonial_layout"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
-		android:layout_alignParentTop="true"
 		android:layout_centerHorizontal="true"
-		android:layout_marginTop="0dp"
-		android:layout_marginBottom="0dp"/>
+		android:layout_marginBottom="0dp"
+		android:layout_below="@+id/view3" />
 
 </RelativeLayout>

@@ -10,7 +10,6 @@
 	android:paddingTop="@dimen/activity_vertical_margin"
 	tools:context="com.mystatscloud.onpoint.ResourcesActivity">
 
-
 	<TextView
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
@@ -25,12 +24,18 @@
 		android:layout_alignParentLeft="true"
 		android:layout_alignParentStart="true" />
 
+	<View style="@style/Divider"
+		android:layout_below="@+id/textView21"
+		android:layout_alignParentLeft="true"
+		android:layout_alignParentStart="true"
+		android:id="@+id/view2" />
+
 	<ListView
 		android:id="@+id/resources_layout"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
 		android:layout_centerHorizontal="true"
 		android:layout_marginBottom="0dp"
-		android:layout_below="@+id/textView21" />
+		android:layout_below="@+id/view2" />
 
 </RelativeLayout>

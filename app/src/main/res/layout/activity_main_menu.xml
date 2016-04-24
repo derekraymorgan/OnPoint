@@ -4,15 +4,15 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
-	tools:context="com.mystatscloud.onpoint.MainActivity"
+	tools:context=".SplashActivity"
 	>
 
 	<ImageView
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
 		android:id="@+id/BackGround"
-		android:src="@drawable/bg_gears"
-		android:scaleType="fitXY"/>
+		android:src="@drawable/bg"
+		android:scaleType="centerCrop"/>
 
 	<LinearLayout
 		android:orientation="vertical"
@@ -21,7 +21,7 @@
 		android:layout_alignParentTop="true"
 		android:layout_alignParentLeft="true"
 		android:layout_alignParentStart="true"
-		android:layout_marginTop="50sp">
+        android:layout_marginTop="50dp">
 
 		<Button
 			android:layout_width="fill_parent"
@@ -29,7 +29,9 @@
 			android:text="About"
 			android:id="@+id/aboutButton"
 			android:clickable="true"
-			android:onClick="showAboutView"/>
+			android:onClick="showAboutView"
+			android:textSize="@dimen/abc_text_size_large_material"
+			android:padding="15dp" />
 
 		<Button
 			android:layout_width="fill_parent"
@@ -38,7 +40,9 @@
 			android:id="@+id/testimonialsButton"
 			android:clickable="true"
 			android:focusable="false"
-			android:onClick="showTestimonialsView"/>
+			android:onClick="showTestimonialsView"
+			android:textSize="@dimen/abc_text_size_large_material"
+			android:padding="15dp" />
 
 		<Button
 			android:layout_width="fill_parent"
@@ -48,7 +52,9 @@
 			android:layout_gravity="center_horizontal"
 			android:clickable="true"
 			android:focusable="false"
-			android:onClick="showPracticeExamView"/>
+			android:onClick="showPracticeExamView"
+			android:textSize="@dimen/abc_text_size_large_material"
+			android:padding="15dp" />
 
 		<Button
 			android:layout_width="fill_parent"
@@ -58,7 +64,9 @@
 			android:layout_gravity="center_horizontal"
 			android:clickable="true"
 			android:focusable="false"
-			android:onClick="showScheduleTestView"/>
+			android:onClick="showScheduleTestView"
+			android:textSize="@dimen/abc_text_size_large_material"
+			android:padding="15dp" />
 
 		<Button
 			android:layout_width="fill_parent"
@@ -67,7 +75,9 @@
 			android:id="@+id/testFacilityLocatorButton"
 			android:clickable="true"
 			android:focusable="false"
-			android:onClick="showTestFacilityLocatorView"/>
+			android:onClick="showTestFacilityLocatorView"
+			android:textSize="@dimen/abc_text_size_large_material"
+			android:padding="15dp" />
 
 		<Button
 			android:layout_width="fill_parent"
@@ -76,7 +86,9 @@
 			android:id="@+id/faqButton"
 			android:clickable="true"
 			android:focusable="false"
-			android:onClick="showFaqView"/>
+			android:onClick="showFaqView"
+			android:textSize="@dimen/abc_text_size_large_material"
+			android:padding="15dp" />
 
 		<Button
 			android:layout_width="fill_parent"
@@ -85,7 +97,9 @@
 			android:id="@+id/resourcesButton"
 			android:clickable="true"
 			android:focusable="false"
-			android:onClick="showResourcesView"/>
+			android:onClick="showResourcesView"
+			android:textSize="@dimen/abc_text_size_large_material"
+			android:padding="15dp" />
 
 	</LinearLayout>
 

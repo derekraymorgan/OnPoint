@@ -21,6 +21,15 @@
 		android:id="@+id/textView"
 		android:gravity="center" />
 
+    <View style="@style/Divider"/>
+
+    <SearchView android:id="@+id/search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:iconifiedByDefault="false" />
+
 	<View style="@style/Divider"/>
 
 	<ExpandableListView

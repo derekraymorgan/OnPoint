@@ -8,7 +8,6 @@ public class ExpandListChild
     private String Name;
     private String Tag;
 
-
     /**
      * get method for name or value of the item
      * @return Name

@@ -10,7 +10,6 @@ public class ExpandListParent
     private String Name;
     private ArrayList<ExpandListChild> Items;
 
-
     /**
      * get method for name or value of the parent
      * @return Name
