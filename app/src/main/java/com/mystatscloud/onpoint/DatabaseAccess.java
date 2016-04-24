@@ -125,7 +125,7 @@ public class DatabaseAccess
 		Log.d("Skill",skillsSqlString);
 
 		// query the database
-		Cursor cursor = database.rawQuery("SELECT * FROM testQuestions where level in (" + skillsSqlString + ") or type in (" + categoriesSqlString + ")", null);
+		Cursor cursor = database.rawQuery("SELECT * FROM testQuestions where level in (" + skillsSqlString + ") or type in (" + categoriesSqlString + ") ORDER BY RANDOM() LIMIT 10", null);
 
 
 		// go to the first record return from the database

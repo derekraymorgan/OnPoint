@@ -3,6 +3,7 @@ package com.mystatscloud.onpoint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
@@ -34,6 +36,9 @@ public class PracticeExamActivity extends ActionBarActivity
 	public int totalCorrectAnswers = 0;
 	public int lastQuestionIndex = 0;
 	private int selectedAnswerIndex = -1;
+	private String currentQuestionImageID = "none";
+	private boolean showedTip = false;
+
 
 	/**
 	 * Connect the activity to the correct view and methods
@@ -46,6 +51,7 @@ public class PracticeExamActivity extends ActionBarActivity
 
 		// set the view for the exam questions
 		setContentView(R.layout.activity_practice_exam);
+
 
 		// grab some saved data from the last activity
 		Bundle selectedValues = getIntent().getExtras();
@@ -122,10 +128,22 @@ public class PracticeExamActivity extends ActionBarActivity
 		if(currentQuestion.resource != 0)
 		{
 
+			if(!showedTip)
+			{
+				showedTip = true;
+
+				Toast toast = Toast.makeText(this, "Touch the image to zoom in", Toast.LENGTH_LONG);
+				toast.show();
+			}
+
+
+
 			// a simple boolean from the sql DB will tell us if there is an image associated with
 			// this question. If there is an image then use the questions primary key to construct
 			// the image file path
 			String uri = "@drawable/q" + currentQuestion.questionID;
+
+			this.currentQuestionImageID = uri;
 
 			// get the translate the image file path to the internal resource identifier for this image
 			int imageResource = getResources().getIdentifier(uri, null, getPackageName());
@@ -142,6 +160,8 @@ public class PracticeExamActivity extends ActionBarActivity
 		{
 			// no image with this question so remove old image by setting to transparent color
 			questionImageView.setImageResource(android.R.color.transparent);
+
+			this.currentQuestionImageID = "none";
 		}
 
 
@@ -184,6 +204,10 @@ public class PracticeExamActivity extends ActionBarActivity
 
 		// shove them into the list view
 		answerListView.setAdapter(adapter);
+
+		TextView currentQuestionNumberView = (TextView) findViewById(R.id.questionNumber);
+
+		currentQuestionNumberView.setText("Question " + Integer.toString(this.lastQuestionIndex+1) + " of 10");
 
 
 	}
@@ -339,6 +363,17 @@ public class PracticeExamActivity extends ActionBarActivity
 
 
 		}
+	}
+
+	/** Called when the user clicks the category based test menu item button */
+	public void showFullScreenImage(View view)
+	{
+		Intent myIntent = new Intent(this, FullScreenImageActivity.class);
+
+		// save the selected skill levels choosen by the user
+		myIntent.putExtra("currentQuestionImageID", this.currentQuestionImageID);
+
+		this.startActivity(myIntent);
 	}
 
 }

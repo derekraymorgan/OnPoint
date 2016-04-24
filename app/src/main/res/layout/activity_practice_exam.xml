@@ -15,12 +15,13 @@
 	<ScrollView
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:id="@+id/scrollView">
+		android:id="@+id/practice_exam">
 
 		<LinearLayout
 			android:orientation="vertical"
 			android:layout_width="match_parent"
-			android:layout_height="match_parent">
+			android:layout_height="match_parent"
+			>
 
 			<TextView
 				android:layout_width="wrap_content"
@@ -41,7 +42,9 @@
 				android:src="@drawable/q4"
 				android:layout_gravity="center_horizontal"
 				android:maxHeight="100sp"
-				android:adjustViewBounds="false"/>
+				android:adjustViewBounds="false"
+				android:clickable="true"
+				android:onClick="showFullScreenImage"/>
 
 			<TextView
 				android:layout_width="wrap_content"
@@ -60,6 +63,14 @@
 				android:choiceMode="singleChoice"
 				android:stackFromBottom="false"
 				android:drawSelectorOnTop="false"/>
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textAppearance="?android:attr/textAppearanceSmall"
+				android:text="Small Text"
+				android:id="@+id/questionNumber"
+				android:layout_gravity="center_horizontal"/>
 
 			<Button
 				android:layout_width="wrap_content"
