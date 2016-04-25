@@ -15,7 +15,7 @@ public class DatabaseOpenHelper extends SQLiteAssetHelper
 	private static final String DATABASE_NAME = "onPoint.db";
 
 	// the version of the database that we are currently working with
-	private static final int DATABASE_VERSION = 16;
+	private static final int DATABASE_VERSION = 17;
 
 	public DatabaseOpenHelper(Context context)
 	{
