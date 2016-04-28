@@ -38,6 +38,7 @@ public class ResourcesActivity extends ActionBarActivity {
         String details[] = {"(PDF; 4 Pages, 2.4 MB)","(PDF; 2 Pages, 176.6 KB)","(PDF; 2 pages, 154.6 KB)"};
         String webTitles[] = {"ACT NCRC", "ACT NCRC Training", "ACT WorkKeys"};
         String links[] = {"http://www.act.org/content/act/en/products-and-services/workforce-solutions/act-national-career-readiness-certificate.html",
+                "https://www.act.org/content/act/en/products-and-services/workforce-solutions/act-national-career-readiness-certificate/training-and-resources.html",
                 "http://www.act.org/content/act/en/products-and-services/workforce-solutions/act-workkeys.html"};
         String webDetail = "(Website)";
         int imgResource = R.drawable.web; // pdf icon for user to identify file type
