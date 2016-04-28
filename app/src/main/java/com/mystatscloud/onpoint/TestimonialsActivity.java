@@ -33,7 +33,7 @@ public class TestimonialsActivity extends ActionBarActivity {
         String tempDescription3 = "\"Employers work to make things predictable, uniform, and certain. " +
                 "Predictability,uniformity, and certainty are universal goals of executives. The National " +
                 "Career Readiness Certificate does this for the hiring process.\"";
-        String tempAuthor3 = "-Mac Macilroy, Past President, Michigan Manufacturers Association";
+        String tempAuthor3 = "- Mac Macilroy, Past President, Michigan Manufacturers Association";
 
         int tempImgResource = R.drawable.face;
         int tempImgResource2 = R.drawable.face2;

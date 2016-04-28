@@ -2,6 +2,7 @@ package com.mystatscloud.onpoint;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 
@@ -20,6 +21,8 @@ public class MainMenuActivity extends ActionBarActivity
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main_menu);
+		ActionBar actionBar = getSupportActionBar();
+		actionBar.hide();
 	}
 
 	/** Called when the user clicks the about menu item button */
