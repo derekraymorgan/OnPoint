@@ -188,12 +188,10 @@ public class PracticeExamActivity extends ActionBarActivity
 
 		// add an onclick listener to all of the answers so that the user can select an
 		// answer by touching it
-		answerListView.setOnItemClickListener(new AdapterView.OnItemClickListener()
-		{
+		answerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
 			// when an answer is selected then get the index of the selected answer
-			public void onItemClick(AdapterView<?> parent, View view, int position, long id)
-			{
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				selectedAnswerIndex = position;
 			}
 
@@ -204,6 +202,17 @@ public class PracticeExamActivity extends ActionBarActivity
 
 		// shove them into the list view
 		answerListView.setAdapter(adapter);
+
+		TextView correctNumberView = (TextView) findViewById(R.id.numCorrect);
+
+		DecimalFormat scoreFormat = new DecimalFormat("##.#");
+
+		scoreFormat.setRoundingMode(RoundingMode.CEILING);
+
+		// show the user the current test score
+		correctNumberView.setText(scoreFormat.format((float) totalCorrectAnswers / (lastQuestionIndex+1) * 100) + "%");
+
+		Float score = (float) this.totalCorrectAnswers / testQuestions.size() * 100;
 
 		TextView currentQuestionNumberView = (TextView) findViewById(R.id.questionNumber);
 
@@ -223,7 +232,7 @@ public class PracticeExamActivity extends ActionBarActivity
 		if(currentAnswers.correctAnswer == selectedAnswerIndex)
 		{
 			// +1 to correct answers
-			totalCorrectAnswers += 1;
+			this.totalCorrectAnswers += 1;
 
 			// tell the user that the answer is correct
 			AlertDialog.Builder builder = new AlertDialog.Builder(PracticeExamActivity.this);
@@ -339,7 +348,7 @@ public class PracticeExamActivity extends ActionBarActivity
 			// show the user the current test score
 			scoreTextView.setText(scoreFormat.format((float) totalCorrectAnswers / testQuestions.size() * 100) + "%");
 
-			Float score = (float) totalCorrectAnswers / testQuestions.size() * 100;
+			Float score = (float) this.totalCorrectAnswers / testQuestions.size() * 100;
 
 			// retrieve the previous high score
 			SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
