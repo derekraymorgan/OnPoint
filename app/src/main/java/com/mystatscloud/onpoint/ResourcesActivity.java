@@ -34,9 +34,13 @@ public class ResourcesActivity extends ActionBarActivity {
 
         // current pdf resources from the ACT website
         String titles[] = {"Employer Brochure","NCRC Information","WorkKeys Assessments Information"};
-        String links[] = {"Employers.pdf","Info.pdf","WorkKeys.pdf"};
+        String src[] = {"Employers.pdf","Info.pdf","WorkKeys.pdf"};
         String details[] = {"(PDF; 4 Pages, 2.4 MB)","(PDF; 2 Pages, 176.6 KB)","(PDF; 2 pages, 154.6 KB)"};
-        int imgResource = R.drawable.pdf; // pdf icon for user to identify file type
+        String webTitles[] = {"ACT NCRC", "ACT NCRC Training", "ACT WorkKeys"};
+        String links[] = {"http://www.act.org/content/act/en/products-and-services/workforce-solutions/act-national-career-readiness-certificate.html",
+                "http://www.act.org/content/act/en/products-and-services/workforce-solutions/act-workkeys.html"};
+        String webDetail = "(Website)";
+        int imgResource = R.drawable.web; // pdf icon for user to identify file type
 
         setContentView(R.layout.activity_resources); // set the xml file being used to draw the activity
 
@@ -48,9 +52,19 @@ public class ResourcesActivity extends ActionBarActivity {
         // populate the data adapter with the resource items
         int i;
         int ResourceCount = 3;
+
+        for(i = 0; i < ResourceCount; i++)
+        {
+            ResourceClass obj = new ResourceClass( webTitles[i], links[i], webDetail, imgResource);
+            adapter.add(obj);
+        }
+
+        ResourceCount = 3;
+        imgResource = R.drawable.pdf;
+
         for (i = 0; i < ResourceCount; i++) {
 
-            ResourceClass obj = new ResourceClass( titles[i], links[i], details[i], imgResource);
+            ResourceClass obj = new ResourceClass( titles[i], src[i], details[i], imgResource);
             adapter.add(obj);
 
         }
@@ -63,8 +77,15 @@ public class ResourcesActivity extends ActionBarActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 int itemPos = position;
-                String itemValue = adapter.getItem(position).getLink();
-                OpenPdf(itemValue);
+                if(adapter.getItem(position).getImgResource() == R.drawable.pdf) {
+                    String itemValue = adapter.getItem(position).getLink();
+                    OpenPdf(itemValue);
+                }
+                else if(adapter.getItem(position).getImgResource() == R.drawable.web)
+                {
+                    Intent browswerIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(adapter.getItem(position).getLink()));
+                    startActivity(browswerIntent);
+                }
             }
         });
     }
