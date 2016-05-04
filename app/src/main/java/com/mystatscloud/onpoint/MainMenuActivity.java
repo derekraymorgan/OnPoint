@@ -84,12 +84,4 @@ public class MainMenuActivity extends ActionBarActivity
 		MainMenuActivity.this.startActivity(myIntent);
 	}
 
-	/*public void showMoo(View view)
-	{
-		Intent myIntent = new Intent(MainMenuActivity.this, PdfRendererActivity.class);
-
-		MainMenuActivity.this.startActivity(myIntent);
-	}*/
-
-
 }
