@@ -1,23 +1,29 @@
 package com.mystatscloud.onpoint.TestFacilityLocator;
 
+import java.io.Serializable;
+
 /**
  * Represents test facility address information
  */
-public class TestFacility {
+public class TestFacility implements Serializable {
     private String address;
     private String city;
     private String state;
     private int zipCode;
     private String phone;
     private String fax;
+    private double lat;
+    private double lng;
 
-    public TestFacility(String address, String city, String state, int zipCode, String phone, String fax) {
+    public TestFacility(String address, String city, String state, int zipCode, String phone, String fax, double lat, double lng) {
         this.address = address;
         this.city = city;
         this.state = state;
         this.zipCode = zipCode;
         this.phone = phone;
         this.fax = fax;
+        this.lat = lat;
+        this.lng = lng;
     }
 
     /**
@@ -86,5 +92,19 @@ public class TestFacility {
 
     public void setFax(String fax) {
         this.fax = fax;
+    }
+
+    /**
+     * @return Latitude of facility
+     */
+    public double getLat() {
+        return lat;
+    }
+
+    /**
+     * @return Longitude of facility
+     */
+    public double getLng() {
+        return lng;
     }
 }
